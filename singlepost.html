@@ -44,9 +44,13 @@
 					En este tutorial, instalará y usará Docker Community Edition (CE) en Ubuntu 18.04. Instalará Docker, trabajará con contenedores e imágenes y enviará una imagen a un repositorio Docker.
 					<br></br>
 					<br><b><big>PREREQUISITOS</big></b></br>
-					<br>Para seguir este tutorial, necesitarás lo siguiente:</br>
+					Para seguir este tutorial, necesitarás lo siguiente:
 					<br><ul><li>Se configuró un servidor Ubuntu 18.04 siguiendo la guía de configuración inicial del servidor Ubuntu 18.04 , que incluye un usuario sudo no root y un firewall.</li>
 					<li>Una cuenta en Docker Hub si desea crear sus propias imágenes y enviarlas a Docker Hub, como se muestra en los pasos 7 y 8.</li></ul>
+					<br><b><big>Paso 1 - Instalando Docker</big></b></br>
+					El paquete de instalación de Docker disponible en el repositorio oficial de Ubuntu puede no ser la última versión. Para asegurarnos de obtener la última versión, instalaremos Docker desde el repositorio oficial de Docker. Para hacerlo, agregaremos un nuevo origen de paquete, agregaremos la clave GPG de Docker para garantizar que las descargas sean válidas y luego instalaremos el paquete.
+					<br>Primero, actualice su lista existente de paquetes:</br>
+					<br> $ sudo apt update</br>
 					</br></p>
 					<br><span class="left"><img src="images/audi2.jpg" alt="example float" /></span></br>
 					
