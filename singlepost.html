@@ -39,18 +39,65 @@
 				<article id="singlepost">
 					<h1><a href="singlepost.html">Instalacion de Docker en Ubuntu 18.04</a></h1>
 					<h2> Por: BRIAN HOGAN </a> | Publicado el 5 de julio de 2018</h2>
-					<p align="justify"><br>Docker es una aplicaciÛn que simplifica el proceso de administraciÛn de procesos de aplicaciones en contenedores . Los contenedores le permiten ejecutar sus aplicaciones en procesos aislados de recursos. Son similares a las m·quinas virtuales, pero los contenedores son m·s port·tiles, m·s amigables con los recursos y m·s dependientes del sistema operativo del host.
-					</br>Para obtener una introducciÛn detallada de los diferentes componentes de un contenedor Docker, consulte El ecosistema Docker: una introducciÛn a los componentes comunes .
-					En este tutorial, instalar· y usar· Docker Community Edition (CE) en Ubuntu 18.04. Instalar· Docker, trabajar· con contenedores e im·genes y enviar· una imagen a un repositorio Docker.
+					<p align="justify"><br>Docker es una aplicaci√≥n que simplifica el proceso de administraci√≥n de procesos de aplicaciones en contenedores . Los contenedores le permiten ejecutar sus aplicaciones en procesos aislados de recursos. Son similares a las m√°quinas virtuales, pero los contenedores son m√°s port√°tiles, m√°s amigables con los recursos y m√°s dependientes del sistema operativo del host.
+					</br>Para obtener una introducci√≥n detallada de los diferentes componentes de un contenedor Docker, consulte El ecosistema Docker: una introducci√≥n a los componentes comunes .
+					En este tutorial, instalar√° y usar√° Docker Community Edition (CE) en Ubuntu 18.04. Instalar√° Docker, trabajar√° con contenedores e im√°genes y enviar√° una imagen a un repositorio Docker.
 					<br></br>
 					<br><b><big>PREREQUISITOS</big></b></br>
-					Para seguir este tutorial, necesitar·s lo siguiente:
-					<br><ul><li>Se configurÛ un servidor Ubuntu 18.04 siguiendo la guÌa de configuraciÛn inicial del servidor Ubuntu 18.04 , que incluye un usuario sudo no root y un firewall.</li>
-					<li>Una cuenta en Docker Hub si desea crear sus propias im·genes y enviarlas a Docker Hub, como se muestra en los pasos 7 y 8.</li></ul>
+					Para seguir este tutorial, necesitar√°s lo siguiente:
+					<br><ul><li>Se configur√≥ un servidor Ubuntu 18.04 siguiendo la gu√≠a de configuraci√≥n inicial del servidor Ubuntu 18.04 , que incluye un usuario sudo no root y un firewall.</li>
+					<li>Una cuenta en Docker Hub si desea crear sus propias im√°genes y enviarlas a Docker Hub, como se muestra en los pasos 7 y 8.</li></ul>
 					<br><b><big>Paso 1 - Instalando Docker</big></b></br>
-					El paquete de instalaciÛn de Docker disponible en el repositorio oficial de Ubuntu puede no ser la ˙ltima versiÛn. Para asegurarnos de obtener la ˙ltima versiÛn, instalaremos Docker desde el repositorio oficial de Docker. Para hacerlo, agregaremos un nuevo origen de paquete, agregaremos la clave GPG de Docker para garantizar que las descargas sean v·lidas y luego instalaremos el paquete.
+					El paquete de instalaci√≥n de Docker disponible en el repositorio oficial de Ubuntu puede no ser la √∫ltima versi√≥n. Para asegurarnos de obtener la √∫ltima versi√≥n, instalaremos Docker desde el repositorio oficial de Docker. Para hacerlo, agregaremos un nuevo origen de paquete, agregaremos la clave GPG de Docker para garantizar que las descargas sean v√°lidas y luego instalaremos el paquete.
+					<br></br>
 					<br>Primero, actualice su lista existente de paquetes:</br>
 					<br> $ sudo apt update</br>
+					<br></br>
+					<br> A continuaci√≥n, instale algunos paquetes de requisitos previos que permitan aptutilizar paquetes a trav√©s de HTTPS:</br>
+					<br> $ sudo apt install apt-transport-https ca-certificates curl software-properties-common</br>
+					<br></br>
+					<br> Luego agregue la clave GPG para el repositorio oficial de Docker a su sistema:</br>
+					<br> $ curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -</br>
+					<br></br>
+					<br> Agregue el repositorio de Docker a las fuentes de APT:</br>
+					<br> $ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu bionic stable"</br>
+					<br></br>
+					<br> A continuaci√≥n, actualice la base de datos de paquetes con los paquetes de Docker del repositorio reci√©n agregado:</br>
+					<br> $ sudo apt update</br>
+					<br></br>
+					<br> Aseg√∫rese de que est√° a punto de instalar desde el repositorio de Docker en lugar del repositorio de Ubuntu predeterminado:</br>
+					<br> $ apt-cache policy docker-ce</br>
+					<br></br>
+					<br> Ver√°s una salida como esta, aunque el n√∫mero de versi√≥n de Docker puede ser diferente:</br>
+					<br> Salida de apt-cache policy docker-ce</br>
+					docker-ce:
+  						<br>Installed: (none)</br>
+  						<br>Candidate: 18.03.1~ce~3-0~ubuntu</br>
+  						<br>Version table:</br>
+    					<br> 18.03.1~ce~3-0~ubuntu 500</br>
+        				<br>500 https://download.docker.com/linux/ubuntu bionic/stable amd64 Packages</br>
+					<br></br>
+					<br> Observe que docker-ceno est√° instalado, pero el candidato para la instalaci√≥n es del repositorio de Docker para Ubuntu 18.04 ( bionic).</br>
+					<br> Finalmente, instale Docker:</br>
+					<br> $ sudo apt install docker-ce</br>
+					<br></br>
+					<br> Docker ahora deber√≠a estar instalado, el demonio iniciado y el proceso habilitado para iniciarse en el arranque. Compruebe que se est√° ejecutando:</br>
+					<br> $ sudo systemctl status docker</br>
+					<br></br>
+					<br> La salida debe ser similar a la siguiente, mostrando que el servicio est√° activo y en ejecuci√≥n:</br>
+					<br> Output</br>
+					<br> docker.service - Docker Application Container Engine</br>
+   					<br>	Loaded: loaded (/lib/systemd/system/docker.service; enabled; vendor preset: enabled)</br>
+   					<br>	Active: active (running) since Thu 2018-07-05 15:08:39 UTC; 2min 55s ago</br>
+  					<br>   Docs: https://docs.docker.com</br>
+ 					<br>	Main PID: 10096 (dockerd)</br>
+  					<br>  Tasks: 16</br>
+  					<br> CGroup: /system.slice/docker.service</br>
+      			    <br> 10096 /usr/bin/dockerd -H fd://</br>
+       				<br>    10113 docker-containerd --config /var/run/docker/containerd/containerd.toml</br>
+					<br></br>
+					<br> La instalaci√≥n de Docker ahora le brinda no solo el servicio (demonio) de Docker, sino tambi√©n la dockerutilidad de l√≠nea de comandos o el cliente de Docker. Exploraremos c√≥mo usar el dockercomando m√°s adelante en este tutorial.</br>
+				
 					</br></p>
 					<br><span class="left"><img src="images/audi2.jpg" alt="example float" /></span></br>
 					
