@@ -5,7 +5,7 @@
 <body>
 <?php 
      
-   $n1=(int)$_POST["numero"]; 
+   $n1=(int)$_POST['numero']; 
     
    for ($b=1;$b<=$n1;$b++) 
    {
