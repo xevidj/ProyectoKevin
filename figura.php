@@ -5,7 +5,7 @@
 <body>
 <?php 
      
-   $numero=$_POST['numero']; 
+   $numero=filter_var($_POST['numero'], FILTER_SANITIZE_STRING); 
     
    for ($b=1;$b<=$numero;$b++) 
    {
