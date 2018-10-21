@@ -64,51 +64,20 @@
 						  <input type="text" name="cateto"
 							<?php if (isset($gender) && $gender=="cateto) echo "checked";?>
 							value="cateto">Cateto
-						   <br><br>
-						   <?php 
-						   class triangulo{ 
-						    //Constructor
-						    function __construct($cateto){ 
-						        $this->cateto = $cateto; 
-						    } 
-						 
-						    //Función que escribe los asteriscos
-						    function sacaTriangulo(){ 
-						        
-						        //Buble para escribir el triángulo superior
-						        for($i = 1; $i <= $this->cateto; $i++){ 
-						            $escrito = 1;
-						            echo "*"; 
-						 
-						            while($escrito < $i){ 
-						                echo "*"; 
-						                $escrito++; 
-						            } 
-						            echo "<br/>";
-						        }
-						 
-						        //Bucle para el triángulo invertido
-						        for($i = $this->cateto; $i >= 1; $i--){
-						            
-						            $escritoInf = 1; 
-						            while($escritoInf < $i){
-						                echo "*";  
-						                $escritoInf++;
-						            }
-						            echo "<br/>";
-						        } 
-						    } 
-						} 
-						//Tamaño de la línea de enmedio
-						$cateto = 8; 
-						//llamamos al contructor pasándole el parámetro para el tamaño
-						$triangulo = new Triangulo($cateto); 
-						//llamamos al método
-						$triangulo->sacaTriangulo(); 
-						?>
+							   <?php 
+							     
+							   $n1=$_GET[a]; 
+							    
+							   for ($b=1;$b<=$n1;$b++) 
+							   {for ($a=1;$a<=$b;$a++) 
+							   {echo '*';} 
+							    echo '<br>'; 
+							   } 
+
+							  ?> 
 						</form> 
-</body>
-</html>
+						</body>
+						</html>
 					</article>
 				</div>
 				<!--__--__--__--  S I D E B A R --__--__--__--__-->
