@@ -7,13 +7,13 @@
     
    $n1=(int)$_GET["numero"];
    
-   for ($b=1;$b<=$numero;$b++)
-   {for ($a=$numero;$a>=$b;$a--)
-   {
-       echo '*  ';
-   }
-    echo '<br>';
-   }
+   for($n=1; $n <= $n1; $n++){
+    echo str_pad('', $n, '*') . '<br />';
+		}
+ 
+		for($n=$n1; $n > 0; $n--){
+    		echo str_pad('', $n, '*') . '<br />';
+		}
  
   ?>
 <p><a href="javascript:history.go(-1)">Back</a></p>
