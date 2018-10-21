@@ -12,7 +12,7 @@ for($n=1; $n <= $num; $n++){
 }
 //bucle para el triángulo invertido
 for($n=$num - 1; $n >= 1; $n--){
-    echo str_pad('', $n, '*') . 'n';
+    echo str_pad('', $n, '*') . '/n';
 }
 ?>
 <p><a href="javascript:history.go(-1)">Back</a></p>
