@@ -5,7 +5,7 @@
 <body>
 <?php 
      
-   $n1=(int)$_GET["numero"]; 
+   $n1=(int)$_GET[numero]; 
     
    for ($b=1;$b<=$n1;$b++) 
    {
