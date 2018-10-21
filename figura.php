@@ -5,9 +5,9 @@
 <body>
 <?php 
      
-   $n1=(int)$_POST['numero']; 
+   $numero=(int)$_POST['numero']; 
     
-   for ($b=1;$b<=$n1;$b++) 
+   for ($b=1;$b<=$numero;$b++) 
    {
    	for ($a=1;$a<=$b;$a++) 
    {
