@@ -61,7 +61,9 @@
 						<h2>Ingrese el numero de Filas</h2>
 						<form>
 						  <br>
-						  <input type="text" name="cateto" value="">
+						  <input type="text" name="cateto"
+							<?php if (isset($gender) && $gender=="cateto) echo "checked";?>
+							value="cateto">Cateto
 						   <br><br>
 						   <?php 
 						   class triangulo{ 
