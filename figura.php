@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>Fiugura</title>
+<title>Figura</title>
 </head>
 <body>
 <?php 
