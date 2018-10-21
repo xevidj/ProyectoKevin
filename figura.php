@@ -1,5 +1,3 @@
-<html> 
- <body> 
    <?php 
      
    $n1=$_POST['numero']; 
@@ -11,5 +9,3 @@
    } 
 
   ?> 
- </body> 
-</html>
