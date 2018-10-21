@@ -8,7 +8,7 @@ First Name: <?php echo $_GET["numero"]; ?><br />
     
    $n1=$_GET["numero"];
    
-   for ($b=1;$b<=$n1;$b++)
+   for ($b=1;$b<=$numero;$b++)
    {for ($a=$n1;$a>=$b;$a--)
    {
        echo '*  ';
