@@ -1,11 +1,8 @@
-   <?php 
-     
-   $n1=$_POST['numero']; 
-    
-   for ($b=1;$b<=$n1;$b++) 
-   {for ($a=1;$a<=$b;$a++) 
-   {echo '*';} 
-    echo '/n'; 
-   } 
-
-  ?> 
+<html>
+ <head>
+  <title>Prueba de PHP</title>
+ </head>
+ <body>
+ <?php echo '<p>Hola Mundo</p>'; ?>
+ </body>
+</html>
