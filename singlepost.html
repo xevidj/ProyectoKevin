@@ -93,11 +93,14 @@
  					<br>	Main PID: 10096 (dockerd)</br>
   					<br>  Tasks: 16</br>
   					<br> CGroup: /system.slice/docker.service</br>
-      			    <br> 10096 /usr/bin/dockerd -H fd://</br>
-       				<br>    10113 docker-containerd --config /var/run/docker/containerd/containerd.toml</br>
+      			    <br> ├─10096 /usr/bin/dockerd -H fd://</br>
+       				<br>    └─10113 docker-containerd --config /var/run/docker/containerd/containerd.toml</br>
 					<br></br>
-					<br> La instalación de Docker ahora le brinda no solo el servicio (demonio) de Docker, sino también la dockerutilidad de línea de comandos o el cliente de Docker. Exploraremos cómo usar el dockercomando más adelante en este tutorial.</br>
-				
+					<br> Finalmente, instale Docker:</br>
+					<br> $ sudo apt install docker-ce</br>
+					<br></br>
+
+
 					</br></p>
 					<br><span class="left"><img src="images/audi2.jpg" alt="example float" /></span></br>
 					
