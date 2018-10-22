@@ -6,47 +6,39 @@
 <head>
 
 <script language="javascript">     
-    function recibir()
+    function figura()
 {
           
 
         var valor = document.getElementById("texto").value;//lo transforma s
         document.getElementById("txt").innerHTML=valor;    //este hace que seponga en el documento     
-var j;
-var i;
-var cont;
 
-       var num=(valor/2);
-                if ( valor % 2 == 0 )
+       var n=(valor/2);
+                if (valor%2==0 )
                 {
                  
-                document.write("ERROR");
+                document.write("Debe ingresar solo numeros impares");
                 }
 else 
-{
-     for (var i=0;i<=num;i++)
+     for (var i=0;i<=n;i++)
      { 
-      for(var j=0;j<i+1;j++)
-      { 
+      for(var j=0;j<i+1;j++)      { 
                 document.write("*");
       }
                 document.write("<br>");
      }
     
-    for (var i=1;i<=num;i++)
+    for (var i=1;i<=n;i++)
      { 
-      for(var j=0;j<=num;j++)
+      for(var j=0;j<=n;j++)
       { 
-        if(j<i) {
-   
+        if(j<i) {   
                 document.write(" ");
                 }
       else {
-
                 document.write("*");
             }
-     }
-   
+     }  
                 document.write("<br>");
     }
 
@@ -63,8 +55,8 @@ else
 <form id="formulario" method="Post">
     	
     	<br>
-      Ingresa un numero :
-<input type="text" id="texto" onchange="recibir()"/> <!--donde escribe el numero -->
+      Ingresa numero de filas:
+<input type="text" id="texto" onchange="figura()"/> <!--donde escribe el numero -->
 <br>
 <div id="txt"></div>
 </form>
