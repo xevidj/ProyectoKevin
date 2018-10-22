@@ -61,7 +61,12 @@
 						<!DOCTYPE html>
 						<html>
 						<head>
-						<script language="javascript">   
+						<script language="javascript">  
+						<script>
+						function goBack() {
+						    window.history.go(-1);
+						}
+						</script> 
 						    function figura()
 						{
 						        var numero = document.getElementById("texto").value;//lo transforma s
@@ -93,8 +98,9 @@
 							    }
 							}
 						}	
-							                document.write("<a href="javascript: history.go(-1)">Volver atrás</a>");
-																       
+							                <button onclick="goBack()">Go Back 2 Pages</button>
+
+
 						</script> 
 						</head>
 						<body>
