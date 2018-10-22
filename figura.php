@@ -7,11 +7,11 @@
  <body>
  <?php 
      
-   $n1=$_POST['numero']; 
+   $n1=(int)$_POST['textfield']; 
     
    for ($b=1;$b<=$n1;$b++) 
    {for ($a=1;$a<=$b;$a++) 
-   {<p>echo '*';</p>} 
+   {echo '*';} 
     echo '/n'; 
    } 
 
