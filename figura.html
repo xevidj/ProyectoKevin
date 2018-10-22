@@ -57,8 +57,7 @@
 						<h1><font size=15>FIGURA</font></a></h1>
 						<br></br>
 						<h2>Debes ingresar el numero de filas y te mostrara la figura</h2>
-						<br></br>
-						
+						<br></br>						
 						<!DOCTYPE html>
 						<html>
 						<head>
@@ -87,8 +86,7 @@
 						     { 
 						      for(var j=0;j<=n;j++)
 						      { 
-						        if(j<i) {
-						   
+						        if(j<i) {						   
 						                document.write(" ");
 						                }
 						      else {
@@ -99,18 +97,16 @@
 						                document.write("<br>");
 						    }
 						}
-						}
-						       
+						}						       
 						</script> 
 						</head>
 						<body>
 
-						<form id="formulario" method="Post">
-						    	
-						    	<br>
-						      Ingresa numero de filas:
+						<form id="formulario" method="Post">						    	
+						 <br></br>
+						<p align="left"><font size=5>Ingresa numero de filas:</font></p>
 						<input type="text" id="texto" onchange="figura()"/> <!--donde escribe el numero -->
-						<br>
+						<br></br>
 						<div id="txt"></div>
 						</form>
 
