@@ -5,7 +5,7 @@
  </head>
  <meta charset="UTF-8">
  <body>
- <?php 
+ <?
      
    $n1=$_POST['numero']; 
     
