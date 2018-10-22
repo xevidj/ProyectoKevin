@@ -63,6 +63,47 @@
 						<img src="images/figura.jpg" alt="" />
 						<br></br>
 						<li><p align="left"><font size=5><a class="continue" href="figura.html">Link Figura</a></font></p></li>
+						<CENTER>
+						<TABLE CELLSPACING=1 CELLPADDING=1 WIDTH=300 BORDER=0 STYLE="border:1px solid black">
+						<TR>
+						<TD BGCOLOR="#FAFAFA">
+						<CENTER>
+						<SPAN STYLE="font-size:11px;font-family:Tahoma;color:black;font-weight:bold"> .Comentarios De Los Usuarios.
+						</SPAN>
+						</CENTER>
+						</TD>
+						</TR>
+
+						<TR>
+						<TD HEIGHT=1 BGCOLOR=black>
+						</TD>
+						</TR>
+
+						<TR>
+						<TD BGCOLOR="#FEFEFE">
+						<SPAN STYLE="font-size:11px;font-family:Tahoma;color:black;">
+
+						<?
+						$resultComen = mysql_query("SELECT * FROM comentarios WHERE id_noticia='$id' ORDER BY id ASC");
+						while($rowComen = mysql_fetch_array($resultComen))
+						{
+						?> ;
+						< FONT COLOR=RED>
+						< B><? echo $rowComen["nick"]; ?></B>
+						< /FONT>
+						:
+						< ? echo $rowComen["comentario"]; ?>
+						< BR>
+						< ?
+						}
+						mysql_free_result($resultComen);
+						?>
+
+						</SPAN>
+						</TD>
+						</TR>
+						</TABLE>
+						</CENTER>
 					</article>
 					<article>
 						<br></br>
