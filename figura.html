@@ -59,32 +59,69 @@
 						<h2>Debes ingresar el numero de filas y te mostrara la figura</h2>
 						<br></br>
 						
+						<!DOCTYPE html>
 						<html>
-						  <head>
-						  </head>
-						  <body>
-						    <form method="_GET">
-						      <input type="text" name="nombre">
-						      <br>
-						      <input type="submit" name="submit" value="Enviar Formulario">
-						    </form>
-						   <html> 
-							 <body> 
-							   <?php 
-							     
-							   $n1=$_GET["nombre"]; 
-							    
-							   for ($b=1;$b<=$n1;$b++) 
-							   {for ($a=1;$a<=$b;$a++) 
-							   {echo '*';} 
-							    echo '<br>'; 
-							   } 
+						<head>
+						<script language="javascript">     
+						    function recibir()
+						{
+						        var valor = document.getElementById("texto").value;//lo transforma s
+						        document.getElementById("txt").innerHTML=valor;    //este hace que seponga en el documento     
+						var j;
+						var i;
+						var cont;
 
-							  ?> 
-							 </body> 
-							</html>
-						  </body>
-						</html>Click Aqui</a></p>
+						       var num=(valor/2);
+						                if ( valor % 2 == 0 )
+						                {
+						                 
+						                document.write("ERROR");
+						                }
+						else 
+						{
+						     for (var i=0;i<=num;i++)
+						     { 
+						      for(var j=0;j<i+1;j++)
+						      { 
+						                document.write("*");
+						      }
+						                document.write("<br>");
+						     }
+						    
+						    for (var i=1;i<=num;i++)
+						     { 
+						      for(var j=0;j<=num;j++)
+						      { 
+						        if(j<i) {
+						   
+						                document.write(" ");
+						                }
+						      else {
+
+						                document.write("*");
+						            }
+						     }						   
+						                document.write("<br>");
+						    }
+						}
+						}
+						       
+						</script> 
+						</head>
+						<body>
+
+						<form id="formulario" method="Post">
+						    	
+						    	<br>
+						      Ingresa un numero :
+						<input type="text" id="texto" onchange="recibir()"/> <!--donde escribe el numero -->
+						<br>
+						<div id="txt"></div>
+						</form>
+
+						</body>
+						</html>
+						</html>
 					
 					</article>
 				</div>
