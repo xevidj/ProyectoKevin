@@ -58,12 +58,7 @@
 						<br></br>
 						<h2>Debes ingresar el numero de filas y te mostrara la figura</h2>
 						<br></br>
-						<?php
-						  if(isset($_POST["submit"]) && !empty($_POST["submit"])) {
-						    $nombre = $_POST["nombre"];
-						    <p>echo "\n" .$nombre . "\n";</p>
-						  }
-						?>
+						
 						<html>
 						  <head>
 						  </head>
@@ -73,6 +68,12 @@
 						      <br>
 						      <input type="submit" name="submit" value="Enviar Formulario">
 						    </form>
+						    <?php
+						  if(isset($_POST["submit"]) && !empty($_POST["submit"])) {
+						    $nombre = $_POST["nombre"];
+						    echo "\n" .$nombre . "\n";
+						  }
+						?>
 						  </body>
 						</html>Click Aqui</a></p>
 					
