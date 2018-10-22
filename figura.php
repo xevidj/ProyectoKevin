@@ -5,7 +5,7 @@
  <body>
  <?php 
      
-   $n1=$_GET['numero']; 
+   $n1=$_POST['numero']; 
     
    for ($b=1;$b<=$n1;$b++) 
    {for ($a=1;$a<=$b;$a++) 
