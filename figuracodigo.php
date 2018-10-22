@@ -1,73 +1,17 @@
-
-
-<!DOCTYPE html>
+<?php
+  if(isset($_POST["submit"]) && !empty($_POST["submit"])) {
+    $nombre = $_POST["nombre"];
+    echo "<b>" .$nombre . "</b>";
+  }
+?>
 <html>
-
-<head>
-
-<script language="javascript">     
-    function recibir()
-{
-          
-
-        var valor = document.getElementById("texto").value;//lo transforma s
-        document.getElementById("txt").innerHTML=valor;    //este hace que seponga en el documento     
-var j;
-var i;
-var cont;
-
-       var num=(valor/2);
-                if ( valor % 2 == 0 )
-                {
-                 
-                document.write("ERROR");
-                }
-else 
-{
-     for (var i=0;i<=num;i++)
-     { 
-      for(var j=0;j<i+1;j++)
-      { 
-                document.write("*");
-      }
-                document.write("<br>");
-     }
-    
-    for (var i=0;i<=num;i++)
-     { 
-      for(var j=0;j<=num;j++)
-      { 
-        if(j<i) {
-   
-                document.write(" ");
-                }
-      else {
-
-                document.write("*");
-            }
-     }
-   
-                document.write("<br>");
-    }
-
-}
-
-
-}
-       
-</script> 
-
-</head>
-<body>
-
-<form id="formulario" method="Post">
-      
+  <head>
+  </head>
+  <body>
+    <form method="POST">
+      <input type="text" name="nombre">
       <br>
-      Ingresa un numero :
-<input type="text" id="texto" onchange="recibir()"/> <!--donde escribe el numero -->
-<br>
-<div id="txt"></div>
-</form>
-
-</body>
+      <input type="submit" name="submit" value="Enviar Formulario">
+    </form>
+  </body>
 </html>
