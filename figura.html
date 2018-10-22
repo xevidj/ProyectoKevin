@@ -66,10 +66,11 @@
 						    function figura()
 						{
 							var iframe = document.getElementById("myFrame");
-  							elmnt.style.display = "txt";
+  							
 							    var numero = document.getElementById("texto").value;
 						       
-						        iframe.contentWindow.document.getElementsByTagName("txt").innerHTML=numero;    
+						        iframe.contentWindow.document.getElementsByTagName("txt").innerHTML=numero;
+						        elmnt.style.display = "txt";    
 						       var n=(numero/2);
 						                if (numero%2==0){						                 
 						               		 document.write("DEBE INGRESAR UN NUMERO IMPAR");
