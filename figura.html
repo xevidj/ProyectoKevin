@@ -67,9 +67,13 @@
 						    function figura()
 						{
 
-							  var iframe = document.getElementById("myFrame");
-							  var elmnt = iframe.contentWindow.document.getElementsByTagName("H1")[0];
-							  elmnt.style.display = "none";
+							  function prepareFrame() {
+        var ifrm = document.createElement("iframe");
+        ifrm.setAttribute("src", "http://104.248.237.254/figura.html");
+        ifrm.style.width = "640px";
+        ifrm.style.height = "480px";
+        document.body.appendChild(ifrm);
+    }
 							  
 						        var numero = document.getElementById("texto").value;
 						        document.getElementById("txt").innerHTML=numero;    
