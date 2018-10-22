@@ -63,20 +63,26 @@
 						  <head>
 						  </head>
 						  <body>
-						    <form method="POST">
+						    <form method="_GET">
 						      <input type="text" name="nombre">
 						      <br>
 						      <input type="submit" name="submit" value="Enviar Formulario">
-						      <?php 
-							   $n1=$_GET[a]; 
+						    </form>
+						   <html> 
+							 <body> 
+							   <?php 
+							     
+							   $n1=$_GET["nombre"]; 
 							    
 							   for ($b=1;$b<=$n1;$b++) 
 							   {for ($a=1;$a<=$b;$a++) 
-							   {<p>echo '*';</p>} 
-							    <p>echo '\n'</p>; 
+							   {echo '*';} 
+							    echo '<br>'; 
 							   } 
 
-						    </form>
+							  ?> 
+							 </body> 
+							</html>
 						  </body>
 						</html>Click Aqui</a></p>
 					
