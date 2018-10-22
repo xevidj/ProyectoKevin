@@ -66,10 +66,10 @@
 						    function figura()
 						{
 							var iframe = document.getElementById("myFrame");
-  							var elmnt = iframe.contentWindow.document.getElementsByTagName("txt")[0];
   							elmnt.style.display = "none";
 							    var numero = document.getElementById("texto").value;
-						        document.getElementById("txt").innerHTML=numero;    
+						       
+						        iframe.contentWindow.document.getElementsByTagName("txt").innerHTML=numero;    
 						       var n=(numero/2);
 						                if (numero%2==0){						                 
 						               		 document.write("DEBE INGRESAR UN NUMERO IMPAR");
@@ -107,9 +107,10 @@
 						<form id="formulario" method="Post">						    	
 						 <br></br>
 						<p align="left"><font size=3>Ingresa numero de filas:</font></p>
-						<iframe id="myFrame" src="/default.asp" style="height:380px;width:100%"></iframe>
+						
 						<input type="text" id="texto" onchange="figura()"/>
 						<br></br>
+						<iframe id="myFrame" src="/default.asp" style="height:380px;width:100%"></iframe>
 						<div id="txt"></div>
 						</form>
 						</body>
