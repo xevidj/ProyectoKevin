@@ -64,8 +64,8 @@
 						<script language="javascript">   
 						    function figura()
 						{
-						        var numero = document.getElementById("texto").value;//lo transforma s
-						        document.getElementById("txt").innerHTML=numero;    //este hace que seponga en el documento     
+						        var numero = document.getElementById("texto").value;
+						        document.getElementById("txt").innerHTML=numero;    
 						       var n=(numero/2);
 						                if (numero%2==0){						                 
 						               		 document.write("Debe ingresar un muero impar");
@@ -102,7 +102,7 @@
 						<form id="formulario" method="Post">						    	
 						 <br></br>
 						<p align="left"><font size=3>Ingresa numero de filas:</font></p>
-						<input type="text" id="texto" onchange="figura()"/> <!--donde escribe el numero -->
+						<input type="text" id="texto" onchange="figura()"/>
 						<br></br>
 						<div id="txt"></div>
 						</form>
