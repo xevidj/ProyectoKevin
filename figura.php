@@ -2,6 +2,7 @@
  <head>
   <title>Prueba de PHP</title>
  </head>
+ <meta charset="UTF-8">
  <body>
  <?php 
      
