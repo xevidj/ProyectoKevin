@@ -129,15 +129,94 @@
 			<!--__--__--__--__--  T H E    F O O T E R --__--__--__--___--__--__--__-->
 			<footer>
 			
-			  <div class="social">
-				<ul>
-					<li><a href="http://www.facebook.com/falconmasters" target="_blank" class="icon-facebook"></a></li>
-					<li><a href="http://www.twitter.com/falconmasters" target="_blank" class="icon-twitter"></a></li>
-					<li><a href="http://www.googleplus.com/falconmasters" target="_blank" class="icon-googleplus"></a></li>
-					<li><a href="http://www.pinterest.com/falconmasters" target="_blank" class="icon-pinterest"></a></li>
-					<li><a href="mailto:contacto@falconmasters.com" class="icon-mail"></a></li>
-				</ul>
+			  <div id="buttons">
+			  <div class="facebook button">
+			    <i class="icon">
+			      <i class="fa fa-facebook"></i>
+			  </i>
+			  <div class="slide">
+			    <p>
+			      Facebook
+			    </p>
+			  </div>
+			  <iframe src="https://www.facebook.com/plugins/like.php?href=https%3A%2F%2Fwww.facebook.com%2Fenablingwp%2F&width=62&layout=button&action=like&size=large&show_faces=false&share=false&height=65&appId" width="62" height="65" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true"></iframe>
+			  </div>
+			  
+			  
+			  <div class="google button">
+			    <i class="icon">
+			      <i class="fa fa-google-plus"></i>
+			  </i>
+			  <div class="slide">
+			    <p>
+			      Google+
+			    </p>
+			  </div>
+			  <!-- Place this tag where you want the +1 button to render. -->
+			  <div class="g-follow" data-annotation="bubble" data-href="https://plus.google.com/+Enablingwp/" data-rel="publisher"></div>
+			  
+			  <!-- Place this tag after the last +1 button tag. -->
+			  <script type="text/javascript">
+			  (function() {
+			    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+			    po.src = 'https://apis.google.com/js/platform.js';
+			    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+			  })();
+			</script>
+			  </div>
+			  <div class="youtube button">
+			    <i class="icon">
+			      <i class="fa fa-youtube"></i>
+			  </i>
+			  <div class="slide">
+			    <p>
+			      YouTube
+			    </p>
+			  </div>
+			  <div class="g-ytsubscribe" data-channel="techpingo" data-layout="default" data-count="default" data-onytevent="onYtEvent"></div>
+			    <script src="https://apis.google.com/js/platform.js"></script>
+
+			<script>
+			  function onYtEvent(payload) {
+			    if (payload.eventType == 'subscribe') {
+			      // Add code to handle subscribe event.
+			    } else if (payload.eventType == 'unsubscribe') {
+			      // Add code to handle unsubscribe event.
+			    }
+			    if (window.console) { // for debugging only
+			      window.console.log('YT event: ', payload);
+			    }
+			  }
+			</script>
+
 			</div>
+			<div class="twitter button">
+			    <i class="icon">
+			      <i class="fa fa-twitter"></i>
+			  </i>
+			  <div class="slide">
+			    <p>
+			      Twitter
+			    </p>
+			  </div>
+			  <a href="https://twitter.com/iamrahuldc" class="twitter-follow-button" data-show-count="false" data-via="mariuCSS">
+			    Tweet
+			  </a>
+			  <script>
+			    !function(d,s,id){
+			      var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';
+			      if(!d.getElementById(id)){
+			        js=d.createElement(s);
+			        js.id=id;
+			        js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');
+			  </script>
+			  </div>
+			  
+			  <center><br><br>
+			  <b>You can Delete this note</b>
+			    <br>
+			 You can always adjust width of the buttons (your sidebar width may vary) in CSS at <b>#buttons , .button and .slide</b>
+			    <br><br><b><a href="https://www.enablingwp.com" target="_blank">My blog</a></b>.
 				<p><font size=3>Todos los Derechos Reservados 2018 - DISEÑADO por TOROSINA.</p></font>
 			</footer>
 		</div>			
