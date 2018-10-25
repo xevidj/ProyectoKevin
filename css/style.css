@@ -476,36 +476,27 @@ input[type="submit"]:active{
 }
 
 /*****PAGINACION NUMERICA********/
-.paginacion {
-margin:20px 0;
+ul.pagination {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
 }
- 
-.paginacion ul {
-list-style:none;
-text-align: center;
+
+ul.pagination li {display: inline;}
+
+ul.pagination li a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
 }
- 
-.paginacion ul li {
-display:inline-block;
-margin-right:10px;
+
+ul.pagination li a.active {
+    background-color: #4CAF50;
+    color: white;
 }
- 
-.paginacion ul li a {
-display:block;
-padding:10px 20px;
-color:#fff;
-background:#024959;
-text-decoration: none;
-}
- 
-.paginacion ul li a:hover {
-background:#037E8C;
-}
- 
-.paginacion ul li .active {
-background:#037E8C;
-font-weight:bold;
-}
+
+ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 
 /************* F O O T E R     S T Y L E *************************/
 
