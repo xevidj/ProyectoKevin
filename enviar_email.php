@@ -131,6 +131,6 @@ $headers = 'From: '.$email_from."\r\n".
  
 Muchas Gracias! Proximamente Estaremos en Contacto.
  
-<?php 
+<?
 }
 ?>
