@@ -124,13 +124,8 @@ $headers = 'From: '.$email_from."\r\n".
 'X-Mailer: PHP/' . phpversion();
  
 @mail($email_to, $email_subject, $email_message, $headers);  
- 
-?>
- 
-<!-- Mensaje de Éxito-->
- 
-Muchas Gracias! Proximamente Estaremos en Contacto.
- 
-<?
+ include 'confirma.html'; 
+
+
 }
 ?>
