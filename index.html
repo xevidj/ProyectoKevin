@@ -16,36 +16,29 @@
 		  gtag('config', 'UA-128108671-1');
 		</script>
 			<style>
-							.paginacion {
-					margin:20px 0;
-				}
-				 
-				.paginacion ul {
-					list-style:none;
-					text-align: center;
-				}
-				 
-				.paginacion ul li {
-					display:inline-block;
-					margin-right:10px;
-				}
-				 
-				.paginacion ul li a {
-					display:block;
-					padding:10px 20px;
-					color:#fff;
-					background:#024959;
-					text-decoration: none;
-				}
-				 
-				.paginacion ul li a:hover {
-					background:#037E8C;
-				}
-				 
-				.paginacion ul li .active {
-					background:#037E8C;
-					font-weight:bold;
-				}
+			ul.pagination {
+			    display: inline-block;
+			    padding: 0;
+			    margin: 0;
+			}
+
+			ul.pagination li {display: inline;}
+
+			ul.pagination li a {
+			    color: black;
+			    float: left;
+			    padding: 8px 16px;
+			    text-decoration: none;
+			    border-radius: 5px;
+			}
+
+			ul.pagination li a.active {
+			    background-color: #4CAF50;
+			    color: white;
+			    border-radius: 5px;
+			}
+
+			ul.pagination li a:hover:not(.active) {background-color: #ddd;}
 			</style>
 
         <!--[if lt IE 9]>
@@ -165,13 +158,16 @@
 					      <p align="center"><font size=3>Estudiante de la carrera de Ing. en Sistemas de la PUCESE</p></font>					
 						
 				</div>
-			<section class="paginacion">
-			<ul>
-				<li><a href="pagina1.html" class="active">1</a></li>
-				<li><a href="pagina2.html">2</a></li>
-				<li><a href="pagina3.html">3</a></li>
-				<li><a href="pagina4.html">4</a></li>
-				<li><a href="pagina5.html">5</a></li>
+			<ul class="pagination">
+			  <li><a href="#">«</a></li>
+			  <li><a href="#">1</a></li>
+			  <li><a class="active" href="#">2</a></li>
+			  <li><a href="#">3</a></li>
+			  <li><a href="#">4</a></li>
+			  <li><a href="#">5</a></li>
+			  <li><a href="#">6</a></li>
+			  <li><a href="#">7</a></li>
+			  <li><a href="#">»</a></li>
 			</ul>
 		</section>
 			</section>	
