@@ -5,9 +5,14 @@
         <link rel="stylesheet" href="css/style.css" />
 		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/default/default.css" type="text/css" media="screen" />
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'/>
-		<link rel="stylesheet" type="text/css" href="css/form-estilos.css">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+   		 <meta http-equiv="X-UA-Compatible" content="ie=edge">
     		<script type="text/javascript" src="js/bootstrap.min.js"></script>
+    		 <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="css/font-awesome.css">
+
+    <script src="js/jquery-3.2.1.js"></script>
+    <script src="js/script.js"></script>
 
 		<script>
 		  window.dataLayer = window.dataLayer || [];
@@ -52,22 +57,39 @@
 
 				<body>
  
-				<aside> 
+				<section class="form_wrap">
 
-				<FORM ACTION="enviar_email.php" METHOD="post"> 
-				 
-				<label for="first_name">Nombre</label> <INPUT type="text" size=36 name="first_name"></INPUT> 
-				<label for="last_name">Apellido</label> <INPUT type="text" size=36 name="last_name"></INPUT> 
-				<label for="email">E-mail</label> <INPUT type="email" size=36 name="email"></INPUT> 
-				<br></br>
-				<label for="telephone">Teléfono</label> <INPUT type="tel" size=36 name="telephone"></INPUT> 
-				<label for="message">Mensaje</label> <TEXTAREA rows=5 cols=30 name="message"></TEXTAREA> 
-				<br>
-				<INPUT type="reset" value="Borrar"> <INPUT type="submit" value="Enviar"><a href="http://104.248.237.254:8080/enviar_email.php"></a>
-				 
-				</FORM> 
-				 
-			</aside> 
+        <section class="cantact_info">
+            <section class="info_title">
+                <span class="fa fa-user-circle"></span>
+                <h2>INFORMACION<br>DE CONTACTO</h2>
+            </section>
+            <section class="info_items">
+                <p><span class="fa fa-envelope"></span> info.contact@gmail.com</p>
+                <p><span class="fa fa-mobile"></span> +1(585) 902-8665</p>
+            </section>
+        </section>
+
+        <form action="" class="form_contact">
+            <h2>Envia un mensaje</h2>
+            <div class="user_info">
+                <label for="names">Nombres *</label>
+                <input type="text" id="names">
+
+                <label for="phone">Telefono / Celular</label>
+                <input type="text" id="phone">
+
+                <label for="email">Correo electronico *</label>
+                <input type="text" id="email">
+
+                <label for="mensaje">Mensaje *</label>
+                <textarea id="mensaje"></textarea>
+
+                <input type="button" value="Enviar Mensaje" id="btnSend">
+            </div>
+        </form>
+
+    </section>
 
   </body>
 			 
