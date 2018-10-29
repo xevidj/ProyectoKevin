@@ -125,16 +125,10 @@ $headers = 'From: '.$email_from."\r\n".
  
 @mail($email_to, $email_subject, $email_message, $headers);  
  
-?>
  
- 
- 
-<!-- incluye aqui tu propio mensaje de Éxito-->
  
 include 'confirma.html';
  
- 
-<?php
  
 }
  
