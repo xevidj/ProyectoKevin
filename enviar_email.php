@@ -119,7 +119,7 @@ if(isset($_POST['email'])) {
  
 $headers = 'From: '.$email_from."\r\n".
  
-'CC: '.$email_from."\r\n".
+'Reply-To: '.$email_from."\r\n" .
  
 'X-Mailer: PHP/' . phpversion();
  
