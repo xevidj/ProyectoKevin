@@ -57,54 +57,33 @@
 
 				<body>
  
-		
-			<!DOCTYPE html>
-<head>
-    <title>Formulario de contacto</title>
-</head>
-<body>
-<?php 
-if(isset($_POST['submit'])){
-    if(isset($_POST['disclaimer'])) {
-        $to = "kevin7sharely@gmail.com"; // Tu email
-        $from = $_POST['email'];
-        $name = $_POST['name'];
-        $subject = "Mensaje enviado";
-        $subject2 = "Copia del mensaje";
-        $message = $name . " escribió lo siguiente:" . "\n\n" . $_POST['message'];
-        $message2 = "Esto es una copia del mensaje " . $name . "\n\n" . $_POST['message'];
+	
+   <form id="formulario" name="formContacto" method="post" action="process.php" >
+	<label for="name">Nombre*:</label>
+	<input type="text" name="name" id="name" placeholder="Introduce tu hombre" class="required" /><br />
+ 
+	<label for="surname">Apellidos*:</label>
+	<input type="text" name="surname" id="surname" placeholder="Tus dos apellidos" class="required" /><br />
+ 
+	<label for="company">Empresa*:</label>
+	<input type="text" name="company" id="company" placeholder="¿Para quién trabajas?" class="required" /><br />
+ 
+	<label for="department">Cargo/Departamento:</label>
+	<input type="text" name="department" id="department" placeholder="¿Qué función desempeñas?" /><br />
+ 
+	<label for="phone">Teléfono:</label>
+	<input type="tel" name="phone" id="phone" placeholder="¿Hablamos?" /><br />
+ 
+	<label for="mail">E-mail*:</label>
+	<input type="email" name="mail" id="mail" placeholder="Podré contestarte" class="required" /><br />
+ 
+	<label for="comment">Comentario:</label>
+	<textarea placeholder="Escribeme tu comentario aquí" id="comment" name="comment"></textarea><br />
+ 
+	<div id="aster" > * | Campos obligatorios</div>
+ 
+	<input class="botonAcceder" type="submit" id="boton" value="Enviar" />
 
-        $headers = "From:" . $from;
-        $headers2 = "From:" . $to;
-        mail($to,$subject,$message,$headers);
-        mail($from,$subject2,$message2,$headers2); // Envia una copia a la persona. Si no lo quieres, borra esta línea.
-        echo "Mensaje enviado. Gracias " . $_name . ", me pondré en contacto lo antes posible.";
-    } else {
-        echo 'Debe acertar las condiones de uso y privacidad';
-    }
-}
-?>
-    <form action="#formulario-contacto" method="post" id="formulario-contacto">
-        <p>
-            <label for="name">Nombre</label>
-            <input type="text" name="name" id="name">
-        </p>
-        <p>
-            <label for="email">Email</label>
-            <input type="email" name="email" id="email">
-        </p>
-        <p>
-            <label for="message">Mensaje</label>
-            <textarea name="message" id="message"></textarea>
-        </p> 
-        <p>
-            <label for="disclaimer">Acepto las <a href="#">condiciones de uso y privacidad</a></label>
-            <input type="checkbox" name="disclaimer" id="disclaimer">
-        </p>
-        <p>
-            <input type="submit" name="submit" value="Enviar">
-        </p>
-    </form>
 </body>
 </html> 
   </body>
