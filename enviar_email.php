@@ -3,9 +3,10 @@ if(isset($_POST['email'])) {
  
     // Edita las líneas siguientes con tu dirección de correo y asunto
  
-    $email_to = "kevin7sharely@gmail.com";
+    $email_to = "
+ kevin_addidas@hotmail.com";
  
-    $email_subject = "TOROSINA'BLOGS";   
+    $email_subject = "Tu Asunto de correo";   
  
     function died($error) {
  
@@ -14,7 +15,7 @@ if(isset($_POST['email'])) {
         echo "Lo sentimos, hay un error en sus datos y el formulario no puede ser enviado. ";
  
         echo "Detalle de los errores.<br /><br />";
- 
+        
         echo $error."<br /><br />";
  
         echo "Porfavor corrije los errores e inténtelo de nuevo.<br /><br />";
@@ -37,7 +38,7 @@ if(isset($_POST['email'])) {
  
     }
  //Valor "name" nos sirve para crear las variables que recolectaran la información de cada campo
- 
+    
     $first_name = $_POST['first_name']; // requerido
  
     $last_name = $_POST['last_name']; // requerido
@@ -45,13 +46,13 @@ if(isset($_POST['email'])) {
     $email_from = $_POST['email']; // requerido
  
     $telephone = $_POST['telephone']; // no requerido 
- 
+
     $message = $_POST['message']; // requerido
  
     $error_message = "Error";
- 
+
 //Verificar que la dirección de correo sea válida 
- 
+    
    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
  
   if(!preg_match($email_exp,$email_from)) {
@@ -59,11 +60,11 @@ if(isset($_POST['email'])) {
     $error_message .= 'La dirección de correo proporcionada no es válida.<br />';
  
   }
- 
+
 //Validadacion de cadenas de texto
- 
+
     $string_exp = "/^[A-Za-z .'-]+$/";
- 
+
   if(!preg_match($string_exp,$first_name)) {
  
     $error_message .= 'El formato del nombre no es válido<br />';
@@ -89,10 +90,10 @@ if(isset($_POST['email'])) {
   }
  
 //Plantilla de mensaje
- 
+
     $email_message = "Contenido del Mensaje.\n\n";
  
- 
+     
  
     function clean_string($string) {
  
@@ -102,7 +103,7 @@ if(isset($_POST['email'])) {
  
     }
  
- 
+     
  
     $email_message .= "Nombre: ".clean_string($first_name)."\n";
  
@@ -113,7 +114,7 @@ if(isset($_POST['email'])) {
     $email_message .= "Teléfono: ".clean_string($telephone)."\n";
  
     $email_message .= "Mensaje: ".clean_string($message)."\n";
- 
+  
  
 //Encabezados
  
@@ -128,7 +129,7 @@ $headers = 'From: '.$email_from."\r\n".
 ?>
  
 <script>
-     window.location.href='confirma.html';
+     window.location.href='http://104.248.237.254:8080/confirma.html';
 </script>
  
 <?php 
