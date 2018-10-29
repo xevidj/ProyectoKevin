@@ -1,4 +1,4 @@
-﻿<?php
+﻿<?
 if(isset($_POST['email'])) {
  
     // Edita las líneas siguientes con tu dirección de correo y asunto
@@ -131,6 +131,6 @@ $headers = 'From: '.$email_from."\r\n".
      window.location.href='http://104.248.237.254:8080/confirma.html';
 </script>
  
-<?php 
+<?
 }
 ?>
