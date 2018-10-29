@@ -3,7 +3,6 @@
 /* v1.0 | 20080212 */
 
 
-
 /*Fin estilos generales*/
 
 #contenedor {
@@ -24,7 +23,7 @@
 	-webkit-transform: rotate(-90deg); 
 	-moz-transform: rotate(-90deg);
 	
-	color:#FF0000;
+	color:#d3e11d;
 	
 	position: absolute;
 	top: 200px;
