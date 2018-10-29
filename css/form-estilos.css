@@ -2,16 +2,6 @@
    internetedadinero.com
 */
 
-body {
-  margin: auto;
-  background: #fafafa;
-  width: 100%;
-  max-width: 600px;
-  float: none;
-  text-align: center;
-
-}
-
 h1 {
   font-size: 22px;
   font-family: 'Source Sans Pro', sans-serif;
