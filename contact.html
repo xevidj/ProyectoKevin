@@ -58,30 +58,55 @@
 				<body>
  
 		
-			<div class="fcontacto">
-				<form method="post" name="fcontacto" id="fcontacto" action="send.php">
-					<div class="row">
-						<div class="col-md-6">
-							<label>Tu nombre:</label>
-							<input type="text" name="name" id="name" class="form-control">
-						</div>
+			<!DOCTYPE html>
+<head>
+    <title>Formulario de contacto</title>
+</head>
+<body>
+<?php 
+if(isset($_POST['submit'])){
+    if(isset($_POST['disclaimer'])) {
+        $to = "email@example.com"; // Tu email
+        $from = $_POST['email'];
+        $name = $_POST['name'];
+        $subject = "Mensaje enviado";
+        $subject2 = "Copia del mensaje";
+        $message = $name . " escribió lo siguiente:" . "\n\n" . $_POST['message'];
+        $message2 = "Esto es una copia del mensaje " . $name . "\n\n" . $_POST['message'];
 
-						<div class="col-md-6">
-							<label>Tu Email:</label>
-							<input type="text" name="email" id="email" class="form-control">
-						</div>
-					</div>
-					<label>Asunto:</label>
-					<input type="text" name="asunto" id="asunto" class="form-control">
-					<label>Tu Mensaje:</label>
-					<textarea name="mensaje" id="mensaje" cols="30" rows="10" class="form-control"></textarea>
-					<input type="submit" class="btn btn-info" value="Enviar" href="send.php">
-
-					<div id="respuesta" style="display: none;"></div>
-				</form>
-			</div>
-		</div>
-
+        $headers = "From:" . $from;
+        $headers2 = "From:" . $to;
+        mail($to,$subject,$message,$headers);
+        mail($from,$subject2,$message2,$headers2); // Envia una copia a la persona. Si no lo quieres, borra esta línea.
+        echo "Mensaje enviado. Gracias " . $_name . ", me pondré en contacto lo antes posible.";
+    } else {
+        echo 'Debe acertar las condiones de uso y privacidad';
+    }
+}
+?>
+    <form action="#formulario-contacto" method="post" id="formulario-contacto">
+        <p>
+            <label for="name">Nombre</label>
+            <input type="text" name="name" id="name">
+        </p>
+        <p>
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email">
+        </p>
+        <p>
+            <label for="message">Mensaje</label>
+            <textarea name="message" id="message"></textarea>
+        </p> 
+        <p>
+            <label for="disclaimer">Acepto las <a href="#">condiciones de uso y privacidad</a></label>
+            <input type="checkbox" name="disclaimer" id="disclaimer">
+        </p>
+        <p>
+            <input type="submit" name="submit" value="Enviar">
+        </p>
+    </form>
+</body>
+</html> 
   </body>
 			 
 				<!--__--__--__--  S I D E B A R --__--__--__--__-->
