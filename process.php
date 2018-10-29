@@ -5,7 +5,7 @@
 */
 
 //Correo de destino; donde se enviará el correo.
-$correoDestino = "tu.mail@dominio.ext";
+$correoDestino = "kevin7sharely@gmail.com";
 
 //Texto emisor; sólo lo leerá quien reciba el contenido.
 $textoEmisor = "MIME-VERSION: 1.0\r\n";
