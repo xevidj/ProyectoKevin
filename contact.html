@@ -6,7 +6,9 @@
 		<link rel="stylesheet" href="css/nivo-slider.css" type="text/css" media="screen" />
 		<link rel="stylesheet" href="css/default/default.css" type="text/css" media="screen" />
 		<link href="styles1.css" rel="stylesheet">
-		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'>
+		<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400' rel='stylesheet' type='text/css'><link rel="stylesheet" type="text/css" href="form-estilos.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     		<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 		<script>
@@ -50,55 +52,23 @@
 					</div>
 					<br></br>
 
-				<form name="contactform" method="post" action="send_form_email.php"> 
-				<table width="450px"><!---Este tamaño en px es personalizable -->
-				<tr>
-				 <td valign="top">
-				  <label for="first_name">Nombre *</label>
-				 </td>
-				 <td valign="top">
-				  <input  type="text" name="first_name" maxlength="50" size="30">
-				 </td>
-				</tr>
-				<tr>
-				 <td valign="top">
-				  <label for="last_name">Apellido *</label>
-				 </td>
-				 <td valign="top">
-				  <input  type="text" name="last_name" maxlength="50" size="30">
-				 </td>
-				</tr>
-				<tr>
-				 <td valign="top">
-				  <label for="email">E-mail *</label>
-				 </td>
-				 <td valign="top">
-				  <input  type="text" name="email" maxlength="80" size="30">
-				 </td>
-				</tr>
-				<tr>
-				 <td valign="top">
-				  <label for="telephone">Teléfono</label>
-				 </td>
-				 <td valign="top">
-				  <input  type="text" name="telephone" maxlength="30" size="30">
-				 </td>
-				</tr>
-				<tr>
-				 <td valign="top">
-				  <label for="message">Mensaje *</label>
-				 </td>
-				 <td valign="top">
-				  <textarea  name="message" maxlength="1000" cols="25" rows="6"></textarea>
-				 </td>
-				</tr>
-				<tr>
-				 <td colspan="2" style="text-align:center">
-				  <input type="submit" value="Submit">   <a href="confirma.html">Enviar</a>
-				 </td>
-				</tr>
-				</table>
-				</form>
+				<body>
+ 
+				<aside> 
+
+				<FORM ACTION="enviar_email.php" METHOD="post"> 
+				 
+				<label for="first_name">Nombre</label> <INPUT type="text" size=36 name="first_name"></INPUT> 
+				<label for="last_name">Apellido</label> <INPUT type="text" size=36 name="last_name"></INPUT> 
+				<label for="email">E-mail</label> <INPUT type="email" size=36 name="email"></INPUT> 
+				<label for="telephone">Teléfono</label> <INPUT type="tel" size=36 name="telephone"></INPUT> 
+				<label for="message">Mensaje</label> <TEXTAREA rows=5 cols=30 name="message"></TEXTAREA> 
+				<br>
+				<INPUT type="reset" value="Borrar"> <INPUT type="submit" value="Enviar"><a href="http://www.internetedadinero.com/tutorial-formulario/email_form.php"></a>
+				 
+				</FORM> 
+				 
+			</aside> 
 
   </body>
 			 

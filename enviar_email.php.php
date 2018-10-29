@@ -1,23 +1,23 @@
 ﻿<?php
 if(isset($_POST['email'])) {
  
-    // Edita las dos líneas siguientes con tu dirección de correo y asunto personalizados
+    // Edita las líneas siguientes con tu dirección de correo y asunto
  
-    $email_to = "kevin7sharely@gmail.com";
+    $email_to = "tucorreo@tucorreo.com";
  
-    $email_subject = "Su mensaje ha sido recibido";   
+    $email_subject = "Tu Asunto de correo";   
  
     function died($error) {
  
         // si hay algún error, el formulario puede desplegar su mensaje de aviso
  
-        echo "Lo sentimos, hubo un error en sus datos y el formulario no puede ser enviado en este momento. ";
+        echo "Lo sentimos, hay un error en sus datos y el formulario no puede ser enviado. ";
  
         echo "Detalle de los errores.<br /><br />";
-        
+ 
         echo $error."<br /><br />";
  
-        echo "Porfavor corrija estos errores e inténtelo de nuevo.<br /><br />";
+        echo "Porfavor corrije los errores e inténtelo de nuevo.<br /><br />";
         die();
     }
  
@@ -36,8 +36,8 @@ if(isset($_POST['email'])) {
         died('Lo sentimos pero parece haber un problema con los datos enviados.');       
  
     }
- //En esta parte el valor "name" nos sirve para crear las variables que recolectaran la información de cada campo
-    
+ //Valor "name" nos sirve para crear las variables que recolectaran la información de cada campo
+ 
     $first_name = $_POST['first_name']; // requerido
  
     $last_name = $_POST['last_name']; // requerido
@@ -45,13 +45,13 @@ if(isset($_POST['email'])) {
     $email_from = $_POST['email']; // requerido
  
     $telephone = $_POST['telephone']; // no requerido 
-
+ 
     $message = $_POST['message']; // requerido
  
     $error_message = "Error";
-
-//En esta parte se verifica que la dirección de correo sea válida 
-    
+ 
+//Verificar que la dirección de correo sea válida 
+ 
    $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
  
   if(!preg_match($email_exp,$email_from)) {
@@ -59,11 +59,11 @@ if(isset($_POST['email'])) {
     $error_message .= 'La dirección de correo proporcionada no es válida.<br />';
  
   }
-
-//En esta parte se validan las cadenas de texto
-
+ 
+//Validadacion de cadenas de texto
+ 
     $string_exp = "/^[A-Za-z .'-]+$/";
-
+ 
   if(!preg_match($string_exp,$first_name)) {
  
     $error_message .= 'El formato del nombre no es válido<br />';
@@ -82,17 +82,17 @@ if(isset($_POST['email'])) {
  
   }
  
-  if(strlen($error_message) > 0) {
+  if(strlen($error_message) < 0) {
  
     died($error_message);
  
   }
  
-//A partir de aqui se contruye el cuerpo del mensaje tal y como llegará al correo
-
+//Plantilla de mensaje
+ 
     $email_message = "Contenido del Mensaje.\n\n";
  
-     
+ 
  
     function clean_string($string) {
  
@@ -102,7 +102,7 @@ if(isset($_POST['email'])) {
  
     }
  
-     
+ 
  
     $email_message .= "Nombre: ".clean_string($first_name)."\n";
  
@@ -113,9 +113,9 @@ if(isset($_POST['email'])) {
     $email_message .= "Teléfono: ".clean_string($telephone)."\n";
  
     $email_message .= "Mensaje: ".clean_string($message)."\n";
-  
  
-//Se crean los encabezados del correo
+ 
+//Encabezados
  
 $headers = 'From: '.$email_from."\r\n".
  
@@ -125,11 +125,12 @@ $headers = 'From: '.$email_from."\r\n".
  
 @mail($email_to, $email_subject, $email_message, $headers);  
  
+?>
  
+<script>
+     window.location.href='confirma.html';
+</script>
  
-include 'confirma.html';
- 
- 
+<?php 
 }
- 
 ?>
