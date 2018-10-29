@@ -3,8 +3,7 @@ if(isset($_POST['email'])) {
  
     // Edita las dos líneas siguientes con tu dirección de correo y asunto personalizados
  
-    $email_to = "
- kevin7sharely@gmail.com";
+    $email_to = "kevin7sharely@gmail.com";
  
     $email_subject = "Su mensaje ha sido recibido";   
  
@@ -132,7 +131,7 @@ $headers = 'From: '.$email_from."\r\n".
  
 <!-- incluye aqui tu propio mensaje de Éxito-->
  
-Gracias! Nos pondremos en contacto contigo a la brevedad
+include 'confirma.html';
  
  
 <?php
