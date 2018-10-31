@@ -198,10 +198,71 @@
             <br></br>
             <br></br>
             <font size=5><h2> CSS </h2></font>
-            <img src="images/CSS.jpg" alt="" />
             <br></br>
-            <p align="left"><font size=5><a class="continue" href="https://www.w3schools.com/css/css_quiz.asp" target="_blank">
-            Link para el Test</a></font></p>
+            <!DOCTYPE html>
+<html>
+<body>
+
+<svg id="svgContainer" width="600" height="300">
+  <rect x="0" y="0" width="150" height="100"
+  style="fill:rgb(500,500,500);stroke-width:0;stroke:rgb(0,0,0)" />
+  <rect x="0" y="100" width="150" height="100"
+  style="fill:rgb(0,0,500);stroke-width:0;stroke:rgb(0,0,0)" />
+  <rect x="150" y="0" width="150" height="100"
+  style="fill:rgb(500,0,0);stroke-width:0;stroke:rgb(0,0,0)" />
+  <rect x="150" y="100" width="150" height="100"
+  style="fill:rgb(500,500,500);stroke-width:0;stroke:rgb(0,0,0)" />
+  <polygon id="estrella" points="" style="fill:blue;stroke;stroke-width:2;fill-rule:nonzero;" transform="rotate(-90 125 100)" fill-rule="evenodd"></polygon>
+  <polygon id="estrella2" points="" style="fill:red;stroke;stroke-width:2;fill-rule:nonzero;" transform="rotate(-90 125 100)" fill-rule="evenodd"></polygon>
+
+<script>
+var cx = 180;
+var cy = 45;
+var r = 20;
+var lados = 5;
+var paso = 2;
+
+function points(cx, cy, r, lados, paso){
+var a = 360/lados;
+var points= (cx+r)+","+cy+" ";
+
+		for(var i=1;i <= lados;i++){
+				var aRad=  ((Math.PI / 180) * (a*i))*paso;
+				Xp = cx+r * Math.cos(aRad);
+				Yp = cy+r * Math.sin(aRad);
+				points += Xp+","+Yp+" ";
+		}
+return points
+}
+var estrella = document.getElementById("estrella");
+estrella.setAttribute("points", points(cx, cy, r, lados,paso));
+</script>
+
+<script>
+var cx = 70;
+var cy = 200;
+var r = 20;
+var lados = 5;
+var paso = 2;
+
+function points(cx, cy, r, lados, paso){
+var a = 360/lados;
+var points= (cx+r)+","+cy+" ";
+
+		for(var i=1;i <= lados;i++){
+				var aRad=  ((Math.PI / 180) * (a*i))*paso;
+				Xp = cx+r * Math.cos(aRad);
+				Yp = cy+r * Math.sin(aRad);
+				points += Xp+","+Yp+" ";
+		}
+return points
+}
+var estrella = document.getElementById("estrella2");
+estrella.setAttribute("points", points(cx, cy, r, lados,paso));
+</script>
+
+</body>
+</html>
           </article>
 
 
