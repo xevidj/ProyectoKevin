@@ -101,7 +101,7 @@
 					<div class="dline"></div>
 				</div>
 				<div id="articles">
-
+          <article>
             <br></br>
             <font size=8><h1>GRAFICOS RELOJES</h1></font>
             <!DOCTYPE html>
@@ -129,10 +129,10 @@ function drawClock() {
 function drawFace(ctx, radius) {
   var grad;
   ctx.beginPath();
-  ctx.arc(0, 0, radius, 0, 2*Math.PI);
+  ctx.arc(-100, -100, radius, 0, 2*Math.PI);
   ctx.fillStyle = 'white';
   ctx.fill();
-  grad = ctx.createRadialGradient(0,0,radius*0.95, 0,0,radius*1.05);
+  grad = ctx.createRadialGradient(-100,-100,radius*0.95, 0,0,radius*1.05);
   grad.addColorStop(0, '#333');
   grad.addColorStop(0.5, 'white');
   grad.addColorStop(1, '#333');
@@ -198,7 +198,7 @@ function drawHand(ctx, pos, length, width) {
 </html>
 
 
-
+          </article>
 
           <article>
             <br></br>
