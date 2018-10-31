@@ -35,7 +35,7 @@
 			    border-radius: 5px;
 			    font-size: 22px;
 			     border: 1px solid #FF0000;
-			     margin: 0 4px; 
+			     margin: 0 4px;
 			}
 
 			ul.pagination li a.active {
@@ -57,7 +57,7 @@
     </head>
 	<body id="home">
 		<div id="wrapper">
-		
+
 			<!--__--__--__--__--__--  L O G O  &   N A V    B A R --__--___--__--__--__-->
 			<header>
 				<div id="logo">
@@ -75,7 +75,7 @@
 					</ul>
 				</nav>
 			</header>
-			
+
 			<!--__--__--__--__--  T H E    S L I D E R --__--__--__--___--__--__--__-->
 			<div class="slider-wrapper theme-default">
 				<div id="slider" class="nivoSlider">
@@ -90,9 +90,9 @@
 				$('#slider').nivoSlider({pauseTime: 6000,});
 			});
 			</script>
-			
+
 			<!--__--__--__--__--  M A I N   C O N T E N T  --__--__--__--___--__--__-->
-			
+
 			<li><p align="right" ><font size=5 color="red"><a class="continue" href="figura.html">QUIERES JUGAR</a></font></p></li>
 			<section>
 				<div id="line">
@@ -101,15 +101,128 @@
 					<div class="dline"></div>
 				</div>
 				<div id="articles">
+
+          <article>
+            <br></br>
+            <font size=8><h1>HTML5 Canvas y SVG </h1></font>
+            <br></br>
+            <p><font size=3> Bandera de Panama con HTML5 Canvas y SVG . </p></font>
+            <br></br>
+            <font size=5><h2> CANVAS </h2></font>
+            <!DOCTYPE html>
+    <html>
+
+    <body>
+    <canvas id="myCanvas" width="400" height="250" />
+
+    <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#FF0000";
+    ctx.fillRect(200, 0, 500, 125);
+    </script>
+    <script>
+    var c = document.getElementById("myCanvas");
+    var ctx = c.getContext("2d");
+    ctx.fillStyle = "#0101DF";
+    ctx.fillRect(0, 125, 200, 125);
+    </script>
+    <script>
+    var canvas1 = document.getElementById("myCanvas");
+    		if (canvas1 && canvas1.getContext) {
+    		var ctx = canvas1.getContext("2d");
+    			if (ctx) {
+    					ctx.fillStyle ="#0101DF";
+    					ctx.lineWidth = 2;
+    					var X = 70;
+    					var Y =-100;
+    					var R = 20;
+
+    					var L = 5;
+    					var paso = 2;
+
+    					var estrella= L / paso;
+    					var rad = (2*Math.PI) / estrella;
+
+    					// traslada el contexto en el centro del canvas
+    					ctx.translate(canvas1.width / 2, canvas1.height / 2);
+    					//gira el contexto unos 270Âº
+    					ctx.rotate(3*Math.PI/2);
+    					// dibuja el trazado
+    					ctx.beginPath();
+    							for( var i = 0; i < L; i++ ){
+    							x = X + R * Math.cos( rad*i );
+    							y = Y + R * Math.sin( rad*i );
+    							ctx.lineTo(x, y);
+    							}
+    					ctx.closePath();
+    					ctx.stroke();
+    					ctx.fill();
+    			}
+    		}
+          </script>
+          <script>
+          var canvas1 = document.getElementById("myCanvas");
+          		if (canvas1 && canvas1.getContext) {
+          		var ctx = canvas1.getContext("2d");
+          			if (ctx) {
+          					ctx.fillStyle ="#FF0000";
+          					ctx.lineWidth = 2;
+          					var X = 25;
+          					var Y =-270;
+          					var R = 20;
+
+          					var L = 5;
+          					var paso = 2;
+
+          					var estrella= L / paso;
+          					var rad = (2*Math.PI) / estrella;
+
+          					// traslada el contexto en el centro del canvas
+          					ctx.translate(canvas1.width / 2, canvas1.height / 2);
+          					//gira el contexto unos 270Âº
+          					ctx.rotate(3*Math.PI/2);
+          					// dibuja el trazado
+          					ctx.beginPath();
+          							for( var i = 0; i < L; i++ ){
+          							x = X + R * Math.cos( rad*i );
+          							y = Y + R * Math.sin( rad*i );
+          							ctx.lineTo(x, y);
+          							}
+          					ctx.closePath();
+          					ctx.stroke();
+          					ctx.fill();
+          			}
+          		}
+          </script>
+          </body>
+          </html>
+          <article>
+            <br></br>
+            <font size=5><h2> CSS </h2></font>
+            <img src="images/CSS.jpg" alt="" />
+            <br></br>
+            <p align="left"><font size=5><a class="continue" href="https://www.w3schools.com/css/css_quiz.asp" target="_blank">
+            Link para el Test</a></font></p>
+          </article>
+          <article>
+            <br></br>
+            <font size=5><h2> JS </h2></font>
+            <img src="images/JS.jpg" alt="" />
+            <br></br>
+            <p align="left"><font size=5><a class="continue" href="https://www.w3schools.com/js/js_quiz.asp" target="_blank">
+            Link para el Test</a></font></p>
+          </article>
+
 					<article>
 						<br></br>
-						<font size=8><h2>FIGURA</h2></font>		
+						<font size=8><h2>FIGURA</h2></font>
 						<img src="images/figura.jpg" alt="" />
 						<br></br>
 						<li><p align="left"><font size=5><a class="continue" href="figura.html">Link Figura</a></font></p></li>
 
 					</article>
-					
+
 					<article>
 						<br></br>
 						<font size=8><h1>Test de HTML, CSS, JS</h1></font>
@@ -117,14 +230,14 @@
 						<br></br>
 						<p><font size=3> Test para conocer el conocimiento que el estudiante tiene sobre los diferentes Lenguajes de marcado. </p></font>
 						<br></br>
-						<font size=5><h2> HTML </h2></font>		
+						<font size=5><h2> HTML </h2></font>
 						<img src="images/html.jpg" alt="" />
 						<br></br>
 						<p align="left"><font size=5><a class="continue" href="https://www.digitalocean.com/community/tutorials/configuracion-inicial-del-servidor-en-ubuntu-16-04-es" target="_blank">Link para el Test</a></font></p>
 					</article>
 					<article>
 						<br></br>
-						<font size=5><h2> CSS </h2></font>		
+						<font size=5><h2> CSS </h2></font>
 						<img src="images/CSS.jpg" alt="" />
 						<br></br>
 						<p align="left"><font size=5><a class="continue" href="https://www.w3schools.com/css/css_quiz.asp" target="_blank">
@@ -132,52 +245,47 @@
 					</article>
 					<article>
 						<br></br>
-						<font size=5><h2> JS </h2></font>		
+						<font size=5><h2> JS </h2></font>
 						<img src="images/JS.jpg" alt="" />
 						<br></br>
 						<p align="left"><font size=5><a class="continue" href="https://www.w3schools.com/js/js_quiz.asp" target="_blank">
 						Link para el Test</a></font></p>
 					</article>
-					
+
 				</div>
 				<!--__--__--__--  S I D E B A R --__--__--__--__-->
 				<div id="sidebar">
 				<br></br>
 							<img src="images/kevin1.jpg" alt=""/>
 					      <h4><font size=5><p align="center"><b>Mi nombre es KEVIN TOROSINA</b></p></font></h4>
-					      <p align="center"><font size=3>Estudiante de la carrera de Ing. en Sistemas de la PUCESE</p></font>					
-						
+					      <p align="center"><font size=3>Estudiante de la carrera de Ing. en Sistemas de la PUCESE</p></font>
+
 				</div>
 				<div class="center">
 			<ul class="pagination">
-			  <li><a href="#">«</a></li>
+			  <li><a href="#">ï¿½</a></li>
 			  <li><a class="active" href="#">1</a></li>
 			  <li><a href="pagina2.html">2</a></li>
 			  <li><a href="#">3</a></li>
-			  <li><a href="pagina2.html">»</a></li>
+			  <li><a href="pagina2.html">ï¿½</a></li>
 			</ul>
 		</div>
 		<br></br>
 		<br></br>
 		</section>
-			</section>	
+			</section>
 
-			
+
 
 			<!--__--__--__--__--  T H E    F O O T E R --__--__--__--___--__--__--__-->
 			<footer>
 			<a href="https://www.facebook.com/kevin.torosina" target="_blank"><img alt="siguenos en facebook" height="40" src="http://1.bp.blogspot.com/-26xGT3R3DRQ/UiX1SY8I8oI/AAAAAAAAB4Y/bKCnHS9IorE/s1600/Facebook+alt+1.png" title="siguenos en facebook" width="40" /></a>
 			<a href="https://twitter.com/txevi10" target="_blank"><img alt="siguenos en Twitter" height="40" src="http://2.bp.blogspot.com/-ZaTYz5sdFmc/UiX1V-AhNLI/AAAAAAAAB6M/ufa5OqT3x4o/s1600/Twitter+alt+4.png" title="siguenos en Twitter" width="40" /></a>
 			<a href="https://www.youtube.com/channel/UCMVgmKx2JVBFbzW_DmTKXDA?view_as=subscriber" target="_blank"><img alt="Canal de youtube" height="40" src="http://4.bp.blogspot.com/-NFK4YtYPiXw/UiX1X0rq9pI/AAAAAAAAB7w/l_cIRw8Cij0/s1600/Youtube+alt+2.png" title="Canal de youtube" width="40" /></a>
-			<a href="https://www.instagram.com/xevidj/" target="_blank"><img alt="sígueme en Instagram" height="40" src="http://1.bp.blogspot.com/-y2Hmt1c7DO8/UidPHZf07cI/AAAAAAAAB_4/VoI2-auBvNU/s1600/instagram2.png" title="sígueme en Instagram" width="40" /></a>		  
-	
-				<p align="center"><font size=3>Todos los Derechos Reservados 2018 - DISEÑADO por TOROSINA.</p></font>
+			<a href="https://www.instagram.com/xevidj/" target="_blank"><img alt="sï¿½gueme en Instagram" height="40" src="http://1.bp.blogspot.com/-y2Hmt1c7DO8/UidPHZf07cI/AAAAAAAAB_4/VoI2-auBvNU/s1600/instagram2.png" title="sï¿½gueme en Instagram" width="40" /></a>
+
+				<p align="center"><font size=3>Todos los Derechos Reservados 2018 - DISEï¿½ADO por TOROSINA.</p></font>
 			</footer>
-		</div>			
+		</div>
 	</body>
 </html>
-		
-		
-			
-    
-    
