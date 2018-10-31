@@ -110,118 +110,89 @@
             <br></br>
             <font size=5><h2> CANVAS </h2></font>
             <br></br>
+            <!DOCTYPE html>
             <html>
 
-<body>
-<canvas id="myCanvas" width="400" height="250" />
+            <body>
+            <canvas id="myCanvas" width="400" height="250" />
+            <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(200, 0, 500, 125);
+            ctx.fillStyle = "#FFFEFE";
+            ctx.fillRect(200, 125, 500, 125);
+            ctx.fillStyle = "#FFFEFE";
+            ctx.fillRect(0, 0 , 200, 125);
+            ctx.fillStyle = "#0101DF";
+            ctx.fillRect(0, 125, 200, 125);
+            var canvas1 = document.getElementById("myCanvas");
+            		if (canvas1 && canvas1.getContext) {
+            		var ctx = canvas1.getContext("2d");
+            			if (ctx) {
+            					ctx.fillStyle ="#0101DF";
+            					ctx.lineWidth = 2;
+            					var X = 70;
+            					var Y =-100;
+            					var R = 20;
 
-<script>
+            					var L = 5;
+            					var paso = 2;
 
+            					var estrella= L / paso;
+            					var rad = (2*Math.PI) / estrella;
 
+            					// traslada el contexto en el centro del canvas
+            					ctx.translate(canvas1.width / 2, canvas1.height / 2);
+            					//gira el contexto unos 270º
+            					ctx.rotate(3*Math.PI/2);
+            					// dibuja el trazado
+            					ctx.beginPath();
+            							for( var i = 0; i < L; i++ ){
+            							x = X + R * Math.cos( rad*i );
+            							y = Y + R * Math.sin( rad*i );
+            							ctx.lineTo(x, y);
+            							}
+            					ctx.closePath();
+            					ctx.stroke();
+            					ctx.fill();
+            			}
+            		}
+                    var canvas2 = document.getElementById("myCanvas");
+            		if (canvas2 && canvas2.getContext) {
+            		var ctx = canvas2.getContext("2d");
+            			if (ctx) {
+            					ctx.fillStyle ="#FF0000";
+            					ctx.lineWidth = 2;
+            					var X = 25;
+            					var Y =-265;
+            					var R = 20;
 
-</script>
-<script>
+            					var L = 5;
+            					var paso = 2;
 
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = "#FF0000";
-ctx.fillRect(200, 0, 500, 125);
+            					var estrella= L / paso;
+            					var rad = (2*Math.PI) / estrella;
 
-</script>
-<script>
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = "#0101DF";
-ctx.fillRect(0, 125, 200, 125);
-</script>
-
-<script>
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = "#FFFEFE";
-ctx.fillRect(0, 0 , 200, 125);
-</script>
-
-<script>
-var c = document.getElementById("myCanvas");
-var ctx = c.getContext("2d");
-ctx.fillStyle = "#FFFEFE";
-ctx.fillRect(200, 125, 500, 125);
-</script>
-
-
-<script>
-var canvas1 = document.getElementById("myCanvas");
-		if (canvas1 && canvas1.getContext) {
-		var ctx = canvas1.getContext("2d");
-			if (ctx) {
-					ctx.fillStyle ="#0101DF";
-					ctx.lineWidth = 2;
-					var X = 70;
-					var Y =-100;
-					var R = 20;
-
-					var L = 5;
-					var paso = 2;
-
-					var estrella= L / paso;
-					var rad = (2*Math.PI) / estrella;
-
-					// traslada el contexto en el centro del canvas
-					ctx.translate(canvas1.width / 2, canvas1.height / 2);
-					//gira el contexto unos 270º
-					ctx.rotate(3*Math.PI/2);
-					// dibuja el trazado
-					ctx.beginPath();
-							for( var i = 0; i < L; i++ ){
-							x = X + R * Math.cos( rad*i );
-							y = Y + R * Math.sin( rad*i );
-							ctx.lineTo(x, y);
-							}
-					ctx.closePath();
-					ctx.stroke();
-					ctx.fill();
-			}
-		}
-</script>
-<script>
-var canvas2 = document.getElementById("myCanvas");
-		if (canvas2 && canvas2.getContext) {
-		var ctx = canvas2.getContext("2d");
-			if (ctx) {
-					ctx.fillStyle ="#FF0000";
-					ctx.lineWidth = 2;
-					var X = 25;
-					var Y =-270;
-					var R = 20;
-
-					var L = 5;
-					var paso = 2;
-
-					var estrella= L / paso;
-					var rad = (2*Math.PI) / estrella;
-
-					// traslada el contexto en el centro del canvas
-					ctx.translate(canvas2.width / 2, canvas2.height / 2);
-					//gira el contexto unos 270º
-					ctx.rotate(3*Math.PI/2);
-					// dibuja el trazado
-					ctx.beginPath();
-							for( var i = 0; i < L; i++ ){
-							x = X + R * Math.cos( rad*i );
-							y = Y + R * Math.sin( rad*i );
-							ctx.lineTo(x, y);
-							}
-					ctx.closePath();
-					ctx.stroke();
-					ctx.fill();
-			}
-		}
-</script>
-
-
-</body>
-</html>
+            					// traslada el contexto en el centro del canvas
+            					ctx.translate(canvas2.width / 2, canvas2.height / 2);
+            					//gira el contexto unos 270º
+            					ctx.rotate(3*Math.PI/2);
+            					// dibuja el trazado
+            					ctx.beginPath();
+            							for( var i = 0; i < L; i++ ){
+            							x = X + R * Math.cos( rad*i );
+            							y = Y + R * Math.sin( rad*i );
+            							ctx.lineTo(x, y);
+            							}
+            					ctx.closePath();
+            					ctx.stroke();
+            					ctx.fill();
+            			}
+            		}
+            </script>
+            </body>
+            </html>
             </article>
           <article>
             <br></br>
