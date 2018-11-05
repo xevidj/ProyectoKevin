@@ -65,7 +65,7 @@
 						<br></br>
             <html>
     <body>
-        <canvas id="canvas" width="400" height="400" style="background-color:#333"></canvas>
+        <canvas id="canvas" width="400" height="400" style="background-color:#000000"></canvas>
         <script>
         //Objeto canvas
 var canvas = document.getElementById("canvas");
@@ -106,9 +106,9 @@ function drawFace(ctx, radius) {
 
   //3 paradas de color, correspondientes con el borde interior, medio y exterior del arco.
   // ColorStop crea un efecto 3D
-  grad.addColorStop(0, '#333');
+  grad.addColorStop(0, '#F90505');
   grad.addColorStop(0.5, 'white');
-  grad.addColorStop(1, '#333');
+  grad.addColorStop(1, '#F90505');
 
   //Definir el degradado como el estilo de trazo del objeto de dibujo
   ctx.strokeStyle = grad;
