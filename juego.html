@@ -57,22 +57,23 @@ function component(width, height, color, x, y, type) {
     this.gravitySpeed = 0;
     this.update = function() {
         ctx = myGameArea.context;
+
         if (this.type == "text") {
             ctx.font = this.width + " " + this.height;
             ctx.fillStyle = color;
             ctx.fillText(this.text, this.x, this.y);
         } else {
-          if (type == "image") {
+             if (type == "image") {
       ctx.drawImage(this.image,
         this.x,
         this.y,
         this.width, this.height);
-    }else{
+    } else {
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
+            }
         }
     }
-  }
     this.newPos = function() {
         this.gravitySpeed += this.gravity;
         this.x += this.speedX;
