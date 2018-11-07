@@ -20,7 +20,7 @@ var myObstacles = [];
 var myScore;
 
 function startGame() {
-    myGamePiece = new component(30, 30, "image/circulo.gif", 10, 120,"image";
+    myGamePiece = new component(30, 30, "images/circulo.gif", 10, 120,"image";
     myGamePiece.gravity = 0.05;
     myScore = new component("30px", "Consolas", "black", 280, 40, "text");
     myGameArea.start();
@@ -68,7 +68,7 @@ function component(width, height, color, x, y, type) {
         this.x,
         this.y,
         this.width, this.height);
-    } 
+    }
             ctx.fillStyle = color;
             ctx.fillRect(this.x, this.y, this.width, this.height);
         }
