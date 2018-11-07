@@ -47,7 +47,6 @@ function component(width, height, color, x, y, type) {
  this.image = new Image();
  this.image.src = color;
 }
-    this.score = 0;
     this.width = width;
     this.height = height;
     this.speedX = 0;
@@ -124,9 +123,36 @@ function updateGameArea() {
         myObstacles.push(new component(10, x - height - gap, "green", x, height + gap));
     }
     for (i = 0; i < myObstacles.length; i += 1) {
-        myObstacles[i].x += -1;
-        myObstacles[i].update();
-    }
+
+    var t = 1;
+   if(myGameArea.frameNo >=500 && myGameArea.frameNo <=999 ){
+       t = 2;
+       }
+   else{
+       if(myGameArea.frameNo >=1000 && myGameArea.frameNo <=1499){
+       t=3;
+       }
+       else{
+           if(myGameArea.frameNo >=1500 && myGameArea.frameNo <=1999){
+               t=4;
+           }
+           else{
+               if(myGameArea.frameNo >=2000 && myGameArea.frameNo <=2499){
+               t=5;
+               }
+               else{
+                   if(myGameArea.frameNo >=2500 && myGameArea.frameNo <=2999){
+                       t=6;
+                   }
+                   else{
+                       if(myGameArea.frameNo >=3000){
+                       t=7;
+                       }
+                   }
+               }
+           }
+       }
+   }
     myScore.text="SCORE: " + myGameArea.frameNo;
     myScore.update();
     myGamePiece.newPos();
