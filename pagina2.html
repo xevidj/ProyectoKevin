@@ -100,6 +100,174 @@
 
           <article>
             <br></br>
+            <font size=8 color="#DF1D1D"><h1>HTML5 Canvas y SVG </h1></font>
+            <p><font size=5> Bandera de Panamá con HTML5 Canvas y SVG . </p></font>
+            <br></br>
+            <font size=5><h2> CANVAS </h2></font>
+            <br></br>
+            <!DOCTYPE html>
+            <html>
+            <body>
+            <canvas id="myCanvas" width="400" height="250" />
+            <script>
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            ctx.fillStyle = "#FF0000";
+            ctx.fillRect(200, 0, 500, 125);
+            ctx.fillStyle = "#FFFEFE";
+            ctx.fillRect(200, 125, 500, 125);
+            ctx.fillStyle = "#FFFEFE";
+            ctx.fillRect(0, 0 , 200, 125);
+            ctx.fillStyle = "#0101DF";
+            ctx.fillRect(0, 125, 200, 125);
+            var canvas1 = document.getElementById("myCanvas");
+            		if (canvas1 && canvas1.getContext) {
+            		var ctx = canvas1.getContext("2d");
+            			if (ctx) {
+            					ctx.fillStyle ="#0101DF";
+            					ctx.lineWidth = 2;
+                      var X = 70;
+            					var Y =-105;
+            					var R = 15;
+
+            					var L = 5;
+            					var paso = 2;
+
+            					var estrella= L / paso;
+            					var rad = (2*Math.PI) / estrella;
+
+            					// traslada el contexto en el centro del canvas
+            					ctx.translate(canvas1.width / 2, canvas1.height / 2);
+            					//gira el contexto unos 270º
+            					ctx.rotate(3*Math.PI/2);
+            					// dibuja el trazado
+            					ctx.beginPath();
+            							for( var i = 0; i < L; i++ ){
+            							x = X + R * Math.cos( rad*i );
+            							y = Y + R * Math.sin( rad*i );
+            							ctx.lineTo(x, y);
+            							}
+            					ctx.closePath();
+            					ctx.stroke();
+            					ctx.fill();
+            			}
+            		}
+                    var canvas2 = document.getElementById("myCanvas");
+            		if (canvas2 && canvas2.getContext) {
+            		var ctx = canvas2.getContext("2d");
+            			if (ctx) {
+            					ctx.fillStyle ="#FF0000";
+            					ctx.lineWidth = 2;
+                      var X = 25;
+            					var Y =-265;
+            					var R = 15;
+
+            					var L = 5;
+            					var paso = 2;
+
+            					var estrella= L / paso;
+            					var rad = (2*Math.PI) / estrella;
+
+            					// traslada el contexto en el centro del canvas
+            					ctx.translate(canvas2.width / 2, canvas2.height / 2);
+            					//gira el contexto unos 270º
+            					ctx.rotate(3*Math.PI/2);
+            					// dibuja el trazado
+            					ctx.beginPath();
+            							for( var i = 0; i < L; i++ ){
+            							x = X + R * Math.cos( rad*i );
+            							y = Y + R * Math.sin( rad*i );
+            							ctx.lineTo(x, y);
+            							}
+            					ctx.closePath();
+            					ctx.stroke();
+            					ctx.fill();
+            			}
+            		}
+            </script>
+            </body>
+            </html>
+            <li><p align="left"><font size=5><a class="continue" href="https://wrish.xyz/#$7jrkdd" target="_blank">Link Codigo</a></font></p></li>
+            </article>
+          <article>
+            <br></br>
+            <br></br>
+            <font size=5><h2> SVG </h2></font>
+            <br></br>
+            <!DOCTYPE html>
+<html>
+<body>
+
+<svg id="svgContainer" width="600" height="300">
+  <rect x="0" y="0" width="200" height="125"
+  style="fill:rgb(500,500,500);stroke-width:0;stroke:rgb(0,0,0)" />
+
+  <rect x="0" y="125" width="200" height="125"
+  style="fill:rgb(0,0,500);stroke-width:0;stroke:rgb(0,0,0)" />
+
+  <rect x="200" y="0" width="200" height="125"
+  style="fill:rgb(500,0,0);stroke-width:0;stroke:rgb(0,0,0)" />
+
+  <rect x="200" y="125" width="200" height="125"
+  style="fill:rgb(500,500,500);stroke-width:0;stroke:rgb(0,0,0)" />
+
+  <polygon id="estrella" points="" style="fill:blue;stroke;stroke-width:2;fill-rule:nonzero;" transform="rotate(-90 125 100)" fill-rule="evenodd"></polygon>
+  <polygon id="estrella2" points="" style="fill:red;stroke;stroke-width:2;fill-rule:nonzero;" transform="rotate(-90 125 100)" fill-rule="evenodd"></polygon>
+</svg>
+<script>
+var cx = 165;
+var cy = 70;
+var r = 20;
+var lados = 5;
+var paso = 2;
+
+function points(cx, cy, r, lados, paso){
+var a = 360/lados;
+var points= (cx+r)+","+cy+" ";
+
+		for(var i=1;i <= lados;i++){
+				var aRad=  ((Math.PI / 180) * (a*i))*paso;
+				Xp = cx+r * Math.cos(aRad);
+				Yp = cy+r * Math.sin(aRad);
+				points += Xp+","+Yp+" ";
+		}
+return points
+}
+var estrella = document.getElementById("estrella");
+estrella.setAttribute("points", points(cx, cy, r, lados,paso));
+</script>
+
+<script>
+var cx = 40;
+var cy = 275;
+var r = 20;
+var lados = 5;
+var paso = 2;
+
+function points(cx, cy, r, lados, paso){
+var a = 360/lados;
+var points= (cx+r)+","+cy+" ";
+
+		for(var i=1;i <= lados;i++){
+				var aRad=  ((Math.PI / 180) * (a*i))*paso;
+				Xp = cx+r * Math.cos(aRad);
+				Yp = cy+r * Math.sin(aRad);
+				points += Xp+","+Yp+" ";
+		}
+return points
+}
+var estrella = document.getElementById("estrella2");
+estrella.setAttribute("points", points(cx, cy, r, lados,paso));
+</script>
+
+</body>
+</html>
+<li><p align="left"><font size=5><a class="continue" href="https://wrish.xyz/#$7jrkdd" target="_blank">Link Codigo CANVAS</a></font></p></li>
+<li><p align="left"><font size=5><a class="continue" href="https://wrish.xyz/#$ves7s6" target="_blank">Link Codigo SVG</a></font></p></li>
+          </article>
+
+          <article>
+            <br></br>
             <font size=8 color="#DF1D1D"><h1>PRACTICA ESCUDO DEL ECUADOR(SVG)</h1></font>
             <h2> Cambio del color gris al color amarillo</h2>
             <br></br>
@@ -112,35 +280,6 @@
 						<img src="images/figura.jpg" alt="" />
 						<br></br>
 						<li><p align="left"><font size=5><a class="continue" href="figura.html">Link Figura</a></font></p></li>
-					</article>
-
-          <article>
-						<br></br>
-						<font size=8 color="#DF1D1D"><h1>Test de HTML, CSS, JS</h1></font>
-						<h2> Publicado el Octubre 3, 2018</h2>
-						<br></br>
-						<p><font size=3> Test para conocer el conocimiento que el estudiante tiene sobre los diferentes Lenguajes de marcado. </p></font>
-						<br></br>
-						<font size=5><h2> HTML </h2></font>
-						<img src="images/html.jpg" alt="" />
-						<br></br>
-						<p align="left"><font size=5><a class="continue" href="https://www.digitalocean.com/community/tutorials/configuracion-inicial-del-servidor-en-ubuntu-16-04-es" target="_blank">Link para el Test</a></font></p>
-					</article>
-					<article>
-						<br></br>
-						<font size=5><h2> CSS </h2></font>
-						<img src="images/CSS.jpg" alt="" />
-						<br></br>
-						<p align="left"><font size=5><a class="continue" href="https://www.w3schools.com/css/css_quiz.asp" target="_blank">
-						Link para el Test</a></font></p>
-					</article>
-					<article>
-						<br></br>
-						<font size=5><h2> JS </h2></font>
-						<img src="images/JS.jpg" alt="" />
-						<br></br>
-						<p align="left"><font size=5><a class="continue" href="https://www.w3schools.com/js/js_quiz.asp" target="_blank">
-						Link para el Test</a></font></p>
 					</article>
 
 				</div>
