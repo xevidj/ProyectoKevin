@@ -11,91 +11,66 @@
 
 	 <script>
 		 //alias
-     function main() {
+     var stageWidth = 600;
+var stageHeight = 400;
+var gameScore = 0;
 
-     //start crafty
-     Crafty.init(512, 512);
-     //Crafty.canvas();
+Crafty.init(600, 400, document.getElementById('crafty-game'));
 
-     //prepare the spritesheet for game use
-     Crafty.sprite(64, "images/crafty.png", {
-         player: [0, 0]
-     });
+var foodBox = Crafty.e("2D, Canvas, Color, Food")
+  .attr({
+    x: 150,
+    y: 250,
+    w: 15,
+    h: 15
+  })
+  .color("red")
+  .origin("center")
+  .bind("EnterFrame", function(eventData) {
+    this.rotation += 4;
+  });
 
-     //loading screen that displays while assets are being loaded
-     Crafty.scene("loading", function () {
-         Crafty.load(["images/crafty.png"], function () {
-             Crafty.scene("main");
-         });
+var playerBox = Crafty.e("2D, Canvas, Color, Fourway, Collision")
+  .attr({
+    x: 50,
+    y: 360,
+    w: 50,
+    h: 50
+  })
+  .color("black")
+  .fourway(200)
+  .bind("EnterFrame", function(eventData) {
+    if(this.x < 0) {
+      this.x = 0;
+    }
+    if(this.y < 0) {
+      this.y = 0;
+    }
+    if(this.x > (stageWidth - this.w)) {
+      this.x = stageWidth - this.w;
+    }
+    if(this.y > (stageHeight - this.h)) {
+      this.y = stageHeight - this.h;
+    }
+  });
 
-         //white background with some loading text
-         Crafty.background("#FFF");
-         Crafty.e("2D, DOM, Text").attr({ w: 100, h: 20, x: 150, y: 120 })
-                 .text("Loading")
-                 .css({ "text-align": "center" });
-     });
+var scoreText = Crafty.e('2D, DOM, Text')
+  .attr({
+    x: 10,
+    y: 10
+  })
+  .textFont({
+    size: '25px'
+  });
 
-     //automatically play the loading scene
-     Crafty.scene("loading");
+scoreText.text(gameScore.toString());
 
-     //
-     Crafty.c('Ball', {
-         Ball: function() {
-                 //setup animations
-                 this.requires("SpriteAnimation")
-                 .animate("walk_left", 1,0,1)
-                 .animate("walk_right", 0,0,0)
-                 .animate("walk_up", 2,0,2)
-                 .animate("walk_down", 3,0,3)
-                 //change direction when a direction change event is received
-                 .bind("NewDirection",
-                     function (direction) {
-                         if (direction.x < 0) {
-                             if (!this.isPlaying("walk_left"))
-                                 this.stop().animate("walk_left", 10, -1);
-                         }
-                         if (direction.x > 0) {
-                             if (!this.isPlaying("walk_right"))
-                                 this.stop().animate("walk_right", 10, -1);
-                         }
-                         if (direction.y < 0) {
-                             if (!this.isPlaying("walk_up"))
-                                 this.stop().animate("walk_up", 10, -1);
-                         }
-                         if (direction.y > 0) {
-                             if (!this.isPlaying("walk_down"))
-                                 this.stop().animate("walk_down", 10, -1);
-                         }
-                         if(!direction.x && !direction.y) {
-                             this.stop();
-                         }
-                 })
-             return this;
-         }
-     });
-
-     Crafty.c("LeftControls", {
-         init: function() {
-             this.requires('Multiway');
-         },
-
-         leftControls: function(speed) {
-             this.multiway(speed, {W: -90, S: 90, D: 0, A: 180})
-             return this;
-         }
-
-     });
-
-     Crafty.scene("main", function () {
-         generateWorld();
-
-         //create our player entity with some premade components
-         var player1 = Crafty.e("2D, DOM, Ball, player, LeftControls")
-                 .attr({ x: 256, y: 256, z: 1 })
-                 .leftControls(1)
-                 .Ball();
-     });
- };
+playerBox.checkHits("Food").bind("HitOn", function(hitData) {
+  foodBox.x = Math.random() * (stageWidth - foodBox.w);
+  foodBox.y = Math.random() * (stageHeight - foodBox.h);
+  gameScore += 1;
+  scoreText.text(gameScore.toString());
+});
     document.write("<br>");
     document.write("<br>");
     document.write('<a href="http://104.248.237.254:8080/index.html">VOLVER</a>');
