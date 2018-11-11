@@ -62,27 +62,27 @@
                     <form class="formulario-contacto" action="enviar.php" method="POST" role="form">
 
                       <div class="form-group">
-                        <label for="nombre">Nombre</label>
+                        <label for="nombre">Nombre*</label>
                         <input type="text" name="nombre" required class="form-control" id="nombre" placeholder="Nombre">
                       </div>
 
                       <div class="form-group">
-                        <label for="correo">Correo</label>
+                        <label for="correo">Correo*</label>
                       <br>  <input required type="email" name="correo" class="form-control" id="correo" placeholder="email@web.com"></br>
                       </div>
 
                       <div class="form-group">
-                        <label for="telefono">Telefono</label>
+                        <label for="telefono">Telefono*</label>
                         <input type="text" name="telefono" required class="form-control" id="telefono" placeholder="Telefono">
                       </div>
 
                       <div class="form-group">
-                        <label for="ciudad">Ciudad</label>
+                        <label for="ciudad">Ciudad*</label>
                         <input type="text" name="ciudad" required class="form-control" id="ciudad" placeholder="Ciudad">
                       </div>
 
                        <div class="form-group field-contact-provincia_id">
-                <label class="control-label" for="contact-provincia_id">Provincia</label>
+                <label class="control-label" for="contact-provincia_id">Provincia*</label>
                   <select id="contact-provincia_id" required class="form-control" name="contact-provincia_id" onchange="
                             //jsShowWindowLoad(&quot;Seleccionando....&lt;br&gt;&quot;);
                             $.post( &quot;/site/provincias?id=&quot;+$(this).val(), function( data ) {
@@ -117,7 +117,7 @@
                         </select>
         </div>
          <div class="form-group field-contact-canton_id">
-        <label class="control-label" for="contact-canton_id">Canton</label>
+        <label class="control-label" for="contact-canton_id">Canton*</label>
         <select id="contact-canton_id" required class="form-control" name="contact-canton_id" onchange="
                             //jsShowWindowLoad(&quot;Seleccionando....&lt;br&gt;&quot;);
                             $.post( &quot;/site/cantones?id=&quot;+$(this).val(), function( data ) {
@@ -136,7 +136,7 @@
         </select>
         </div>
         <div class="form-group field-contact-parroquia_id">
-        <label class="control-label" for="contact-parroquia_id">Parroquia</label>
+        <label class="control-label" for="contact-parroquia_id">Parroquia*</label>
         <select id="contact-parroquia_id" required class="form-control" name="contact-parroquia_id" onchange="
                             //jsShowWindowLoad(&quot;Seleccionando....&lt;br&gt;&quot;);
                             $.post( &quot;/site/parroquias?id=&quot;+$(this).val(), function( data ) {
