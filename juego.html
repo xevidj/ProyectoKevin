@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,7 +10,7 @@ canvas {
     background-color: #f1f1f1;
 }
 </style>
-</head>
+<script type="text/javascript" src="http://gc.kis.v2.scr.kaspersky-labs.com/F957DBC5-A5AF-584B-B110-4E1C1A12BC4F/main.js" charset="UTF-8"></script><link rel="stylesheet" crossorigin="anonymous" href="http://gc.kis.v2.scr.kaspersky-labs.com/1225BC4A-A34E-5249-B21D-2E24B7366F9F/abn/main.css"/></head>
 <body onload="startGame()">
 <script>
 
@@ -210,11 +212,14 @@ function clearmove() {
     myGamePiece.speedX = 0;
     myGamePiece.speedY = 0;
 }
-
-document.write("<br>");
-document.write("<br>");
-document.write('<a href="http://104.248.237.254:8080/index.html">VOLVER</a>');
-
 </script>
+<div style="text-align:center;width:480px;">
+  <button onmousedown="moveup()" onmouseup="clearmove()" ontouchstart="moveup()">UP</button><br><br>
+  <button onmousedown="moveleft()" onmouseup="clearmove()" ontouchstart="moveleft()">LEFT</button>
+  <button onmousedown="moveright()" onmouseup="clearmove()" ontouchstart="moveright()">RIGHT</button><br><br>
+  <button onmousedown="movedown()" onmouseup="clearmove()" ontouchstart="movedown()">DOWN</button>
+</div>
+
+<p>The score will count one point for each frame you manage to "stay alive".</p>
 </body>
 </html>
