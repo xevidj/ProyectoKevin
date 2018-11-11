@@ -64,57 +64,86 @@
 						<br></br>
 						<h2>Debes ingresar el numero de filas y te mostrara la figura(NUMERO IMPAR)</h2>
 						<br></br>
-						<!DOCTYPE html>
-						<html>
-						<head>
 
-						<script language="javascript">
-						    function figura()
-						{
-							    var numero = document.getElementById("texto").value;
-						        document.getElementById("txt").innerText=numero;
-						       var n=(numero/2);
-						                if (numero%2==0){
-						               		 document.write("DEBE INGRESAR UN NUMERO IMPAR");
-						                }
-							else{
-							     for (var i=0;i<=n;i++)
-							     {
-							      for(var j=0;j<i+1;j++)
-							      {
-							                document.write("*");
-							      }
-							                document.write("<br>");
-							     }
 
-							    for (var i=1;i<=n;i++){
-							      for(var j=0;j<=n;j++){
-							        if(j<i) {
-							                document.write("&nbsp&nbsp");
-							                }
-							      else {
-							                document.write("*");
-							            }
-							     }
-							                document.write("<br>");
-							    }
-							}
-							document.write("<br>");
-							document.write("<br>");
-							document.write('<a href="http://104.248.237.254:8080/figura.html">VOLVER</a>');
-						}
-						</script>
-						</head>
-						<body>
-						<form id="formulario" method="Post">
-						 <br></br>
-						<p align="left"><font size=3>Ingresa numero de filas:</font></p>
-						<input type="text" id="texto" onchange="figura()"/>
-						<br></br>
-						<div id="txt"></div>
-						</form>
-						</body>
-						</html>
+            <!DOCTYPE html>
+            <html>
+            	<head>
+                <script src="js/crafty.js"></script>
+             <link rel="stylesheet" type="text/css" href="css/style2.css">
+             <div id="crafty-game"></div>
+            	</head>
+                <body>
+
+            	 <script>
+            		 //alias
+                 var stageWidth = 600;
+            var stageHeight = 400;
+            var gameScore = 0;
+
+            Crafty.init(600, 400, document.getElementById('crafty-game'));
+
+            var foodBox = Crafty.e("2D, Canvas, Color, Food")
+              .attr({
+                x: 150,
+                y: 250,
+                w: 15,
+                h: 15
+              })
+              .color("red")
+              .origin("center")
+              .bind("EnterFrame", function(eventData) {
+                this.rotation += 4;
+              });
+
+            var playerBox = Crafty.e("2D, Canvas, Color, Fourway, Collision")
+              .attr({
+                x: 50,
+                y: 360,
+                w: 50,
+                h: 50
+              })
+              .color("black")
+              .fourway(200)
+              .bind("EnterFrame", function(eventData) {
+                if(this.x < 0) {
+                  this.x = 0;
+                }
+                if(this.y < 0) {
+                  this.y = 0;
+                }
+                if(this.x > (stageWidth - this.w)) {
+                  this.x = stageWidth - this.w;
+                }
+                if(this.y > (stageHeight - this.h)) {
+                  this.y = stageHeight - this.h;
+                }
+              });
+
+            var scoreText = Crafty.e('2D, DOM, Text')
+              .attr({
+                x: 10,
+                y: 10
+              })
+              .textFont({
+                size: '25px'
+              });
+
+            scoreText.text(gameScore.toString());
+
+            playerBox.checkHits("Food").bind("HitOn", function(hitData) {
+              foodBox.x = Math.random() * (stageWidth - foodBox.w);
+              foodBox.y = Math.random() * (stageHeight - foodBox.h);
+              gameScore += 1;
+              scoreText.text(gameScore.toString());
+            });
+                document.write("<br>");
+                document.write("<br>");
+                document.write('<a href="http://104.248.237.254:8080/index.html">VOLVER</a>');
+            	</script>
+            	</body>
+            </html>
+
 					</article>
 				</div>
 				<!--__--__--__--  S I D E B A R --__--__--__--__-->
