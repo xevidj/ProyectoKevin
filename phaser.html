@@ -37,6 +37,7 @@ function preload() {
     game.load.spritesheet('dog', 'images/baddie.png', 32, 32);
 
     //Load sound effects
+    game.load.audio('barksound', 'images/bark.wav');
 
 }
     //Public Variables - These can be accessed from anywhere!
@@ -155,6 +156,7 @@ function create() {
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
     //Sound effects
+    barksound = game.add.audio('barksound');
 }
 
 function update() {
