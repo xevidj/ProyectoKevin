@@ -1,4 +1,3 @@
-
 /*
  * MelonJS Game Engine
  * Copyright (C) 2011 - 2018 Olivier Biot
@@ -161,7 +160,7 @@
             this.isKinematic = false;
 
             // minimum melonJS version expected
-            this.version = "6.2.0";
+            this.version = "6.0.0";
 
             // to hold the debug options
             // clickable rect area
@@ -222,12 +221,10 @@
             var fontImage = new Image();
             fontImage.src = fontImageSource;
 
-            this.font = new me.BitmapText(0, 0, {
-                fontData: fontDataSource,
-                font: fontImage
-            });
-            this.font.name = "debugPanelFont";
-
+            this.font = new me.BitmapFont(
+                fontDataSource,
+                fontImage
+            );
 
             // free static ressources
             fontImageSource = null;
@@ -285,7 +282,7 @@
             // patch timer.js
             me.plugin.patch(me.timer, "update", function (dt) {
                 // call the original me.timer.update function
-                this._patched.apply(this, arguments);
+                this._patched(dt);
 
                 // call the FPS counter
                 me.timer.countFPS();
@@ -295,7 +292,7 @@
             me.plugin.patch(me.game, "update", function (dt) {
                 var frameUpdateStartTime = window.performance.now();
 
-                this._patched.apply(this, arguments);
+                this._patched(dt);
 
                 // calculate the update time
                 _this.frameUpdateTime = window.performance.now() - frameUpdateStartTime;
@@ -307,7 +304,7 @@
 
                 _this.counters.reset();
 
-                this._patched.apply(this, arguments);
+                this._patched();
 
                 // calculate the drawing time
                 _this.frameDrawTime = window.performance.now() - frameDrawStartTime;
@@ -353,72 +350,37 @@
                 }
             });
 
-
-            me.plugin.patch(me.BitmapText, "draw", function (renderer) {
+            /*
+            // patch font.js
+            me.plugin.patch(me.Font, "draw", function (renderer, text, x, y) {
                 // call the original me.Sprite.draw function
-                this._patched.apply(this, arguments);
+                this._patched(renderer, text, x, y);
 
                 // draw the font rectangle
-                if (_this.visible && me.debug.renderHitBox && this.name !== "debugPanelFont") {
-                    var bounds = this.getBounds();
-
-                    if (typeof this.ancestor !== "undefined") {
-                        var ax = this.anchorPoint.x * bounds.width,
-                            ay = this.anchorPoint.y * bounds.height;
-                        // translate back as the bounds position
-                        // is already adjusted to the anchor Point
-                        renderer.translate(ax, ay);
-                    } else {
-                        renderer.save();
-                    }
-
+                if (me.debug.renderHitBox) {
+                    renderer.save();
                     renderer.setColor("orange");
-                    renderer.drawShape(bounds);
+                    renderer.drawShape(this.getBounds());
                     _this.counters.inc("bounds");
-
-                    if (typeof this.ancestor === "undefined") {
-                        renderer.restore();
-                    }
+                    renderer.restore();
                 }
             });
 
             // patch font.js
-            me.plugin.patch(me.Text, "draw", function (renderer, text, x, y) {
-                // call the original me.Text.draw function
-                this._patched.apply(this, arguments);
-
+            me.plugin.patch(me.Font, "drawStroke", function (renderer, text, x, y) {
                 // call the original me.Sprite.draw function
-                if (_this.visible && me.debug.renderHitBox) {
-                    if (typeof this.ancestor === "undefined") {
-                        renderer.save();
-                    }
-                    renderer.setColor("orange");
-                    renderer.drawShape(this.getBounds());
-                    _this.counters.inc("bounds");
-                    if (typeof this.ancestor === "undefined") {
-                        renderer.restore();
-                    }
-                }
-            });
-
-            // patch font.js
-            me.plugin.patch(me.Text, "drawStroke", function (renderer, text, x, y) {
-                // call the original me.Font.drawStroke function
-                this._patched.apply(this, arguments);
+                this._patched(renderer, text, x, y);
 
                 // draw the font rectangle
-                if (_this.visible && me.debug.renderHitBox) {
-                    if (typeof this.ancestor === "undefined") {
-                        renderer.save();
-                    }
+                if (me.debug.renderHitBox) {
+                    renderer.save();
                     renderer.setColor("orange");
                     renderer.drawShape(this.getBounds());
                     _this.counters.inc("bounds");
-                    if (typeof this.ancestor === "undefined") {
-                        renderer.restore();
-                    }
+                    renderer.restore();
                 }
             });
+            */
 
             // patch entities.js
             me.plugin.patch(me.Entity, "postDraw", function (renderer) {
@@ -480,13 +442,13 @@
                     }
                 }
                 // call the original me.Entity.postDraw function
-                this._patched.apply(this, arguments);
+                this._patched(renderer);
             });
 
             // patch container.js
             me.plugin.patch(me.Container, "draw", function (renderer, rect) {
                 // call the original me.Container.draw function
-                this._patched.apply(this, arguments);
+                this._patched(renderer, rect);
 
                 // check if debug mode is enabled
                 if (!_this.visible) {
@@ -629,7 +591,6 @@
                 // Heap Memory information not available
                 this.font.draw(renderer, "Heap : ??/?? MB", this.memoryPositionX, 2 * this.mod);
             }
-            this.font.draw(renderer, "Pool : " + me.pool.getInstanceCount(), this.memoryPositionX, 10 * this.mod);
         },
 
         /** @private */
