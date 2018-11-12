@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script language="javascript">
+    function figura()
+{
+      var numero = document.getElementById("texto").value;
+        document.getElementById("txt").innerText=numero;
+       var n=(numero/2);
+                if (numero%2==0){
+                   document.write("DEBE INGRESAR UN NUMERO IMPAR");
+                }
+  else{
+       for (var i=0;i<=n;i++)
+       {
+        for(var j=0;j<i+1;j++)
+        {
+                  document.write("*");
+        }
+                  document.write("<br>");
+       }
+
+      for (var i=1;i<=n;i++){
+        for(var j=0;j<=n;j++){
+          if(j<i) {
+                  document.write("&nbsp&nbsp");
+                  }
+        else {
+                  document.write("*");
+              }
+       }
+                  document.write("<br>");
+      }
+  }
+  document.write("<br>");
+  document.write("<br>");
+  document.write('<a href="http://104.248.237.254:8080/figura.html">VOLVER</a>');
+}
+</script>
+</head>
+<body>
+<form id="formulario" method="Post">
+ <br></br>
+<p align="left"><font size=3>Ingresa numero de filas:</font></p>
+<input type="text" id="texto" onchange="figura()"/>
+
+<br></br>
+<div id="txt"></div>
+</form>
+</body>
+</html>
