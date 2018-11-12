@@ -308,7 +308,7 @@
 
                 // calculate the drawing time
                 _this.frameDrawTime = window.performance.now() - frameDrawStartTime;
-            });
+            `});`
 
             // patch sprite.js
             me.plugin.patch(me.Sprite, "draw", function (renderer) {
