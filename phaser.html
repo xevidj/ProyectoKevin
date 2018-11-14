@@ -105,7 +105,7 @@ function create() {
     player.animations.add('left', [0, 1, 2, 3], 10, true);
     player.animations.add('right', [5, 6, 7, 8], 10, true);
 
-    // El enemigo y los escenarios.
+    // El enemigo y su configuracion.
     enemy = game.add.sprite(500, game.world.height - 248, 'baddie');
     game.physics.arcade.enable(enemy);
     enemy.body.collideWorldBounds = true;
