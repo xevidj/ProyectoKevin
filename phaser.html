@@ -1,202 +1,257 @@
-<!doctype html>
-<html lang="en">
-<head>
-	<meta charset="UTF-8" />
-    <title>Phaser - Making your first game, part 9</title>
-    <script src="//cdn.jsdelivr.net/phaser/2.2.2/phaser.min.js"></script>
+eta charset="UTF-8" />
+    <title>Phaser Baddies Demo</title>
+    <script type="text/javascript" src="js/phaser.min.js"></script>
     <style type="text/css">
         body {
             margin: 0;
         }
     </style>
 </head>
-<body>
+<body style = "background-color:#6ac1f7">
 
 <script type="text/javascript">
 
-var game = new Phaser.Game(800, 600, Phaser.AUTO, '', { preload: preload, create: create, update: update });
+var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game', { preload: preload, create: create, update: update });
 
 function preload() {
 
+    //Allow the user to go full screen
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.EXACT_FIT;
+    game.scale.startFullScreen(true);
+
+    //center game on screen
+    this.game.scale.pageAlignHorizontally = true;
+    this.game.scale.pageAlignVertically = true;
+    this.game.scale.refresh();
+
+    //Load images
     game.load.image('sky', 'images/sky.png');
     game.load.image('ground', 'images/platform.png');
     game.load.image('star', 'images/star.png');
     game.load.spritesheet('dude', 'images/dude.png', 32, 48);
 
-    // agregar el sprite de perro incluido en la carpeta de activos
+    //add the dog sprite included in the assets folder
     game.load.spritesheet('dog', 'images/baddie.png', 32, 32);
 
+    //Load sound effects
 
 }
+    //Public Variables - These can be accessed from anywhere!
 
-var player;
-var enemy;
-var platforms;
-var cursors;
-var stars;
-var score = 0;
-var scoreText;
+    var player;
+    var enemy;
+    var platforms;
+    var cursors;
+    var stars;
+    var score = 0;
+    var scoreText;
 
-// indicador de salud
+    //health indicator
     var life = 100;
 
-    // indicador de salud
+    //sprite controls
     var playerLeft;
     var playerRight;
+
+    //gamepad support
+    var pad1;
+    var indicator;
 
 
 function create() {
 
-  // Vamos a usar física, así que habilita el sistema Arcade Physics
+
+    // To listen to buttons from a specific pad listen directly on that pad game.input.gamepad.padX, where X = pad 1-4
+    game.input.gamepad.start();
+    pad1 = game.input.gamepad.pad1;
+
+    // Maintain aspect ratio
+    game.scale.fullScreenScaleMode = Phaser.ScaleManager.SHOW_ALL;
+
+    //Go full screen if user clicks game canvas
+    game.input.onDown.add(gofull, this);
+
+    //  We're going to be using physics, so enable the Arcade Physics system
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
-    // Un fondo simple para nuestro juego.
+    //  A simple background for our game
     game.add.sprite(0, 0, 'sky');
 
-    // El grupo de plataformas contiene el terreno y los 2 salientes sobre los que podemos saltar.
+    //  The platforms group contains the ground and the 2 ledges we can jump on
     platforms = game.add.group();
 
-    // Habilitaremos la física para cualquier objeto que se cree en este grupo
+    //  We will enable physics for any object that is created in this group
     platforms.enableBody = true;
 
-    // Aquí creamos el terreno.
+    // Here we create the ground.
     var ground = platforms.create(0, game.world.height - 64, 'ground');
 
-    // Escala para que se ajuste al ancho del juego (el sprite original es de 400x32 en tamaño)
+    //  Scale it to fit the width of the game (the original sprite is 400x32 in size)
     ground.scale.setTo(2, 2);
 
-    // Esto evita que se caiga cuando saltas sobre él.
+    //  This stops it from falling away when you jump on it
     ground.body.immovable = true;
 
-    // Ahora vamos a crear dos repisas
+    //  Now let's create two ledges
     var ledge = platforms.create(400, 400, 'ground');
     ledge.body.immovable = true;
 
     ledge = platforms.create(-150, 250, 'ground');
     ledge.body.immovable = true;
 
-    // El jugador y su configuración
-    player = game.add.sprite(32, game.world.height - 150, 'dude');
+    // The player and its settings
+    player = game.add.sprite(72, game.world.height - 150, 'dude');
 
-    // Necesitamos habilitar la física en el jugador
+    //  We need to enable physics on the player
     game.physics.arcade.enable(player);
 
-    // Propiedades físicas del jugador. Dale al chico un ligero rebote.
+    //  Player physics properties. Give the little guy a slight bounce.
     player.body.bounce.y = 0.2;
     player.body.gravity.y = 410;
     player.body.collideWorldBounds = true;
-    enemy.body.bounce.y = 0.2;
-    enemy.body.gravity.y = 300;
-    enemy.body.collideWorldBounds = true;
 
-    // Nuestras dos animaciones, caminando de izquierda a derecha.
-    player.animations.add('left', [0, 1, 2, 3], 10, true);
-   player.animations.add('right', [5, 6, 7, 8], 10, true);
+    //  Our two animations, walking left and right.
+    player.animations.add('left', [0, 1], 10, true);
+    player.animations.add('right', [2, 3], 10, true);
 
-
-    // El enemigo y los escenarios.
+    //The enemy and settings
     enemy = game.add.sprite(500, game.world.height - 248, 'dog');
     game.physics.arcade.enable(enemy);
     enemy.body.collideWorldBounds = true;
     enemy.animations.add('left', [0, 1, 2, 3], 10, true);
     enemy.animations.add('right', [5, 6, 7, 8], 10, true);
-    // inicializar el movimiento enemigo
+    //initialise enemy movement
     enemy.body.velocity.x = 350;
     enemy.animations.play('right');
 
-    // Finalmente algunas estrellas para coleccionar.
+    //  Finally some stars to collect
     stars = game.add.group();
 
-    // Habilitaremos la física para cualquier estrella que se cree en este grupo.
+    //  We will enable physics for any star that is created in this group
     stars.enableBody = true;
 
-    // Aquí crearemos 12 de ellos espaciados uniformemente
+    //  Here we'll create 12 of them evenly spaced apart
     for (var i = 0; i < 12; i++)
     {
-      // Crea una estrella dentro del grupo de 'estrellas'
+        //  Create a star inside of the 'stars' group
         var star = stars.create(i * 70, 0, 'star');
 
-        // Deja que la gravedad haga su trabajo
-        star.body.gravity.y = 300;
+        //  Let gravity do its thing
+        star.body.gravity.y = 1000;
 
-        // Esto solo le da a cada estrella un valor de rebote ligeramente aleatorio
-        star.body.bounce.y = 0.7 + Math.random() * 0.2;
+        //  This just gives each star a slightly random bounce value
+        star.body.bounce.y = 0.1 + Math.random() * 0.2;
     }
 
-    // El marcador
-    scoreText = game.add.text(16, 16, 'score: 0', { fontSize: '32px', fill: '#000' });
+    //  The score
+    scoreText = game.add.text(16, 16, 'Score: 0', { fontSize: '32px', fill: '#000' });
 
-    // Life Guage
-   lifeText = game.add.text (16, 46, 'Life: 100', {fontSize: '32px', fill: '# 000'});
+    //Life Guage
+    lifeText = game.add.text(16, 46, 'Life: 100', { fontSize: '32px', fill: '#000' });
 
-    // Nuestros controles.
+    //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
-
+    //Sound effects
+    barksound = game.add.audio('barksound');
 }
 
 function update() {
 
-  // Choca al jugador, al enemigo y a las estrellas con las plataformas.
-  var hitPlatform = game.physics.arcade.collide(player, platforms);
-   game.physics.arcade.collide(enemy, platforms);
-   game.physics.arcade.collide(stars, platforms);
+    //  Collide the player, enemy and the stars with the platforms
+    game.physics.arcade.collide(player, platforms);
+    game.physics.arcade.collide(enemy, platforms);
+    game.physics.arcade.collide(stars, platforms);
 
-   // Comprueba si el jugador se superpone con alguno de los enemigos, si llama a la función touchEnemy
-       game.physics.arcade.overlap(player, stars, collectStar, null, this);
-       // Comprueba si el jugador se superpone con alguno de los enemigos, si llama a la función touchEnemy
-       game.physics.arcade.overlap(enemy, player, touchEnemy, null, this);
-
-    // Restablecer la velocidad de los jugadores (movimiento)
-    // enemigo automático movenemt
-            if (enemy.x < 400){
-                enemy.body.velocity.x = 350;
-                enemy.animations.play('right');
-            } else if(enemy.x > 760){
-                enemy.body.velocity.x = -350;
-                enemy.animations.play('left');
-            }
+    //  Checks to see if the player overlaps with any of the stars, if he does call the collectStar function
+    game.physics.arcade.overlap(player, stars, collectStar, null, this);
+    //  Checks to see if the player overlaps with any of the enemies, if he does call the touchEnemy function
+    game.physics.arcade.overlap(enemy, player, touchEnemy, null, this);
 
     //  Reset the players velocity (movement)
+    //enemy automatic movenemt
+        if (enemy.x < 400){
+            enemy.body.velocity.x = 350;
+            enemy.animations.play('right');
+        } else if(enemy.x > 760){
+            enemy.body.velocity.x = -350;
+            enemy.animations.play('left');
+        }
+
     player.body.velocity.x = 0;
 
-    // controles del teclado
-    if (cursors.left.isDown)
-    {
-      // Mover a la izquierda
-        player.body.velocity.x = -150;
 
-        player.animations.play('left');
-        playerLeft = true;
+
+    // Controls
+    //Check if Game Pad is connected otherwise use keyboard controls
+    if (game.input.gamepad.supported && game.input.gamepad.active && pad1.connected){
+
+        if (pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_LEFT) || pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) < -0.10){
+            //  Move to the left
+            player.body.velocity.x = -150;
+
+            player.animations.play('left');
+            playerLeft = true;
             playerRight = false;
-    }
-    else if (cursors.right.isDown)
-    {
-      playerLeft = false;
+        } else if (pad1.isDown(Phaser.Gamepad.XBOX360_DPAD_RIGHT) || pad1.axis(Phaser.Gamepad.XBOX360_STICK_LEFT_X) > 0.10){
+            playerLeft = false;
             playerRight = true;
-      // Mover a la derecha
-        player.body.velocity.x = 150;
+            //  Move to the right
+            player.body.velocity.x = 150;
 
-        player.animations.play('right');
+            player.animations.play('right');
+        } else {
+            //  Stand still
+            player.animations.stop();
+
+            if (playerLeft == true){
+                player.frame = 0;
+            } else {
+            player.frame = 3;
+            }
+
+        }
+
+        if (pad1.justPressed(Phaser.Gamepad.XBOX360_A) && player.body.touching.down){
+            player.body.velocity.y = -350;
+        }
+
+    } else {
+
+        //keyboard controls
+        if (cursors.left.isDown) {
+            //  Move to the left
+            player.body.velocity.x = -150;
+
+            player.animations.play('left');
+            playerLeft = true;
+            playerRight = false;
+        }
+        else if (cursors.right.isDown) {
+            playerLeft = false;
+            playerRight = true;
+            //  Move to the right
+            player.body.velocity.x = 150;
+
+            player.animations.play('right');
+        } else {
+            //  Stand still
+            player.animations.stop();
+
+                if (playerLeft == true){
+                    player.frame = 0;
+                } else {
+                    player.frame = 3;
+                }
+
+        }
+
+        //  Allow the player to jump if they are touching the ground.
+        if (cursors.up.isDown && player.body.touching.down) {
+            player.body.velocity.y = -350;
+        }
     }
-    else
-    {
-      // Quédate quieto
-        player.animations.stop();
 
-        if (playerLeft == true){
-                      player.frame = 0;
-                  } else {
-                      player.frame = 3;
-                  }
-    }
-
-    //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && player.body.touching.down && hitPlatform)
-    {
-        player.body.velocity.y = -350;
-    }
-
-    // Comprueba si el jugador ha recogido todas las estrellas y ha ganado el juego.
+    //Check if player has collected all the stars and won the game
     if (score == 120) {
         enemy.kill();
         player.kill();
@@ -209,16 +264,18 @@ function update() {
 
 }
 
+
 function collectStar (player, star) {
 
-  // Elimina la estrella de la pantalla.
+    // Removes the star from the screen
     star.kill();
-
-    // Añadir y actualizar la puntuación
+    barksound.play();
+    //  Add and update the score
     score += 10;
     scoreText.text = 'Score: ' + score;
 
 }
+
 
 function touchEnemy (enemy, player) {
 
@@ -245,7 +302,20 @@ function touchEnemy (enemy, player) {
         }
 }
 
+function gofull() {
+
+    if (game.scale.isFullScreen) {
+        game.scale.stopFullScreen();
+    } else {
+        game.scale.startFullScreen(false);
+    }
+}
+
 </script>
-<div id = "game" style = ""> </div>
+
+<div id="game" style=""></div>
+
+
+
 </body>
 </html>
