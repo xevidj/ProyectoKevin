@@ -81,6 +81,7 @@ function create() {
 
     // Necesitamos habilitar la física en el jugador
     game.physics.arcade.enable(player);
+    game.physics.arcade.enable(enemy);
 
     // Propiedades físicas del jugador. Dale al chico un ligero rebote.
     player.body.bounce.y = 0.2;
