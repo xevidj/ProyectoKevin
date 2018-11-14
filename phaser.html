@@ -138,7 +138,7 @@ function create() {
 function update() {
 
   // Choca al jugador, al enemigo y a las estrellas con las plataformas.
-   game.physics.arcade.collide(player, platforms);
+  var hitPlatform = game.physics.arcade.collide(player, platforms);
    game.physics.arcade.collide(enemy, platforms);
    game.physics.arcade.collide(stars, platforms);
 
@@ -192,7 +192,7 @@ function update() {
     }
 
     //  Allow the player to jump if they are touching the ground.
-    if (cursors.up.isDown && player.body.touching.down)
+    if (cursors.up.isDown && player.body.touching.down && hitPlatform)
     {
         player.body.velocity.y = -350;
     }
