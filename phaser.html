@@ -96,7 +96,7 @@ function create() {
 
 
     // El enemigo y los escenarios.
-    enemy = game.add.sprite(500, game.world.height - 248, 'badguy');
+    enemy = game.add.sprite(500, game.world.height - 248, 'dog');
     game.physics.arcade.enable(enemy);
     enemy.body.collideWorldBounds = true;
     enemy.animations.add('left', [0, 1, 2, 3], 10, true);
