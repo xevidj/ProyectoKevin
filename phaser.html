@@ -34,7 +34,7 @@ function preload() {
     game.load.spritesheet('dude', 'images/dude.png', 32, 48);
 
     // agregar el sprite del enemigo incluido en la carpeta de activos
-    game.load.spritesheet('dog', 'images/baddie.png', 32, 32);
+    game.load.spritesheet('baddie', 'images/baddie.png', 32, 32);
 
 
 }
@@ -106,7 +106,7 @@ function create() {
     player.animations.add('right', [5, 6, 7, 8], 10, true);
 
     // El enemigo y los escenarios.
-    enemy = game.add.sprite(500, game.world.height - 248, 'dog');
+    enemy = game.add.sprite(500, game.world.height - 248, 'baddie');
     game.physics.arcade.enable(enemy);
     enemy.body.collideWorldBounds = true;
     enemy.animations.add('left', [0, 1, 2, 3], 10, true);
