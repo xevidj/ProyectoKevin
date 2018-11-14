@@ -136,14 +136,10 @@ function update() {
    game.physics.arcade.collide(enemy, platforms);
    game.physics.arcade.collide(stars, platforms);
 
-    //  Collide the player and the stars with the platforms
-    //var hitPlatform = game.physics.arcade.collide(player, platforms);
-
-    // Comprueba si el jugador se superpone con alguna de las estrellas, si llama a la función collectStar
-    game.physics.arcade.overlap(player, stars, collectStar, null, this);
-
-  }// Comprueba si el jugador se superpone con alguno de los enemigos, si llama a la función touchEnemy
-    game.physics.arcade.overlap (enemigo, jugador, touchEnemy, nulo, this);
+   // Comprueba si el jugador se superpone con alguno de los enemigos, si llama a la función touchEnemy
+       game.physics.arcade.overlap(player, stars, collectStar, null, this);
+       // Comprueba si el jugador se superpone con alguno de los enemigos, si llama a la función touchEnemy
+       game.physics.arcade.overlap(enemy, player, touchEnemy, null, this);
 
     // Restablecer la velocidad de los jugadores (movimiento)
     // enemigo automático movenemt
