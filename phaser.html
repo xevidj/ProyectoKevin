@@ -33,7 +33,6 @@ function preload() {
     //add the dog sprite included in the assets folder
     game.load.spritesheet('dog', 'images/baddie.png', 32, 32);
 
-    //Load sound effects
 
 }
     //Public Variables - These can be accessed from anywhere!
@@ -151,8 +150,6 @@ function create() {
 
     //  Our controls.
     cursors = game.input.keyboard.createCursorKeys();
-    //Sound effects
-    barksound = game.add.audio('barksound');
 }
 
 function update() {
@@ -269,7 +266,6 @@ function collectStar (player, star) {
 
     // Removes the star from the screen
     star.kill();
-    barksound.play();
     //  Add and update the score
     score += 10;
     scoreText.text = 'Score: ' + score;
@@ -288,7 +284,6 @@ function touchEnemy (enemy, player) {
     } else {
 
         // Removes the star from the screen
-        barksound.play();
         //  Add and update the score
         life -= 10;
     }
