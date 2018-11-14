@@ -143,7 +143,7 @@ function update() {
     game.physics.arcade.overlap(player, stars, collectStar, null, this);
 
   }// Comprueba si el jugador se superpone con alguno de los enemigos, si llama a la función touchEnemy
-    game.physics.arcade.overlap (enemigo, jugador, touchEnemy, nulo, esto);
+    game.physics.arcade.overlap (enemigo, jugador, touchEnemy, nulo, this);
 
     // Restablecer la velocidad de los jugadores (movimiento)
     // enemigo automático movenemt
