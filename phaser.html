@@ -211,7 +211,32 @@ function collectStar (player, star) {
 
 }
 
-</script>
+función touchEnemy (enemigo, jugador) {
 
+    if ( player.y < enemy.y ){
+        enemy.body.velocity.x = 0;
+        enemy.y -= 500;
+        enemy.kill ();
+        player.y -= 30;
+
+    } else {
+
+        // Elimina la estrella de la pantalla.
+        barksound.play();
+        // Añadir y actualizar la puntuación
+        vida - = 10;
+    }
+
+        lifeText.text = 'Life:' + life;
+        //Juego terminado
+        si (vida == 0) {
+            player.kill ();
+            var text = game.add.text (game.world.centerX, game.world.centerY, "YOU LOSE!", {font: "65px Arial", fill: "# ff0044", align: "center"});
+
+        }
+}
+
+</script>
+<div id = "game" style = ""> </div>
 </body>
 </html>
