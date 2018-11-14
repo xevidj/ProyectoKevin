@@ -215,27 +215,27 @@ function collectStar (player, star) {
 
 }
 
-función touchEnemy (enemigo, jugador) {
+function touchEnemy (enemy, player) {
 
     if ( player.y < enemy.y ){
         enemy.body.velocity.x = 0;
         enemy.y -= 500;
-        enemy.kill ();
+        enemy.kill();
         player.y -= 30;
 
     } else {
 
-        // Elimina la estrella de la pantalla.
+        // Removes the star from the screen
         barksound.play();
-        // Añadir y actualizar la puntuación
-        vida - = 10;
+        //  Add and update the score
+        life -= 10;
     }
 
-        lifeText.text = 'Life:' + life;
-        //Juego terminado
-        si (vida == 0) {
-            player.kill ();
-            var text = game.add.text (game.world.centerX, game.world.centerY, "YOU LOSE!", {font: "65px Arial", fill: "# ff0044", align: "center"});
+        lifeText.text = 'Life: ' + life;
+        //Gameover
+        if(life == 0){
+            player.kill();
+            var text = game.add.text(game.world.centerX, game.world.centerY, "YOU LOSE!", { font: "65px Arial", fill: "#ff0044", align: "center" });
 
         }
 }
