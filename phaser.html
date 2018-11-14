@@ -161,9 +161,13 @@ function update() {
         player.body.velocity.x = -150;
 
         player.animations.play('left');
+        playerLeft = true;
+            playerRight = false;
     }
     else if (cursors.right.isDown)
     {
+      playerLeft = false;
+            playerRight = true;
       // Mover a la derecha
         player.body.velocity.x = 150;
 
@@ -174,7 +178,11 @@ function update() {
       // Quédate quieto
         player.animations.stop();
 
-        player.frame = 4;
+        if (playerLeft == true){
+                      player.frame = 0;
+                  } else {
+                      player.frame = 3;
+                  }
     }
 
     //  Allow the player to jump if they are touching the ground.
