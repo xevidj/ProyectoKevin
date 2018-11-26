@@ -88,11 +88,13 @@ function updateScript() {
 
 app.setFullScreenButton("goVR", "click", true);
 app.setFullScreenButton("goRegular", "click", false);
+app.setFullScreenButton("goBack", "click", false);
+
 
 function getSourceCode() {
   var src = testDemo.toString(),
       lines = src.replace("\r\n", "\n").split("\n");
-  
+
   lines.pop();
   lines.shift();
   for (var i = 0; i < lines.length; ++i) {
