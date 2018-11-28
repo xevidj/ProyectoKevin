@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <head>
-<!-- En esta parte del código se escribe la información general sobre las
-llamadas a three.js y artoolkit.js -->
+<!-- En esta parte del código se escribe la información general sobre las llamadas a three.js y artoolkit.js -->
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 	<title>THREE AR JS</title>
 	<!-- incluir three.js library -->
@@ -15,13 +14,11 @@ llamadas a three.js y artoolkit.js -->
 	<script src="js/threearjs/threex-arbasecontrols.js"></script>
 	<script src="js/threearjs/threex-armarkercontrols.js"></script>
 </head>
-
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-<script>
 
-//Iniciando el render, es decir, preparando para la lanzar las imágenes
-// y formatos
+<script>
+//Iniciando el render, es decir, preparando para la lanzar las imágenes y formatos
 var scene, camera, renderer, clock, deltaTime, totalTime;
 var arToolkitSource, arToolkitContext;
 var markerRoot1, markerRoot2;
@@ -33,7 +30,6 @@ animate();
 function initialize()
 {
 	scene = new THREE.Scene();
-
 	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.5 );
 	scene.add( ambientLight );
 
@@ -95,7 +91,6 @@ function initialize()
 		detectionMode: 'mono'
 	});
 
-	//
 //Copiar la matriz de proyección a la cámara cuando se complete la inicialización.
 	arToolkitContext.init( function onCompleted(){
 		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
@@ -108,7 +103,6 @@ function initialize()
 //el marcador de blanco y negro gracias a nuestro marcador por excelencia: EL HIRO
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'js/threearjs/border.png' );
-
 	let patternArray = ["letterA", "letterB", "letterC", "letterD", "letterF", "kanji", "hiro"];
 	let colorArray   = [0xff0000, 0xff8800, 0xffff00, 0x00cc00, 0x0000ff, 0xcc00ff, 0xcccccc];
 	for (let i = 0; i < 7; i++)
@@ -119,10 +113,8 @@ function initialize()
 			type : 'pattern', patternUrl : "js/threearjs/" + patternArray[i] + ".patt",
 		});
 
-		//Se agrega el objeto 3d de three.js para lanzar elementos. Para esto se puede
-		//trabajar con diferentes formas y elementos.
-
-		let mesh = new THREE.Mesh(
+//Se agrega el objeto 3d de three.js para lanzar elementos. Para esto se puede trabajar con diferentes formas y elementos.
+	let mesh = new THREE.Mesh(
 			new THREE.CubeGeometry(1.25,1.25,1.25),
 			new THREE.MeshBasicMaterial({color:colorArray[i], map:texture, transparent:true, opacity:0.5})
 		);
@@ -144,7 +136,6 @@ function render()
 	renderer.render( scene, camera );
 }
 
-
 function animate()
 {
 	requestAnimationFrame(animate);
@@ -155,6 +146,5 @@ function animate()
 }
 
 </script>
-
 </body>
 </html>
