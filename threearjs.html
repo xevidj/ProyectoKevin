@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <head>
+//	En esta parte del código se escribe la información general sobre las llamadas a three.js y artoolkit.js
 	<meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-	<title>Hello, AR Cubes!</title>
-	<!-- include three.js library -->
+	<title>THREE AR JS</title>
+	<!-- incluir three.js library -->
 	<script src='js/Primrose/three.min.js'></script>
-	<!-- include jsartookit -->
+	<!-- incluir jsartookit -->
 	<script src="js/threearjs/artoolkit.min.js"></script>
 	<script src="js/threearjs/artoolkit.api.js"></script>
-	<!-- include threex.artoolkit -->
+	<!-- incluir threex.artoolkit -->
 	<script src="js/threearjs/threex-artoolkitsource.js"></script>
 	<script src="js/threearjs/threex-artoolkitcontext.js"></script>
 	<script src="js/threearjs/threex-arbasecontrols.js"></script>
@@ -16,19 +17,13 @@
 
 <body style='margin : 0px; overflow: hidden; font-family: Monospace;'>
 
-<!--
-  Example created by Lee Stemkoski: https://github.com/stemkoski
-  Based on the AR.js library and examples created by Jerome Etienne: https://github.com/jeromeetienne/AR.js/
--->
-
 <script>
 
+//Iniciando el render, es decir, preparando para la lanzar las imágenes
+// y formatos
 var scene, camera, renderer, clock, deltaTime, totalTime;
-
 var arToolkitSource, arToolkitContext;
-
 var markerRoot1, markerRoot2;
-
 var mesh1;
 
 initialize();
@@ -41,6 +36,7 @@ function initialize()
 	let ambientLight = new THREE.AmbientLight( 0xcccccc, 0.5 );
 	scene.add( ambientLight );
 
+//Activamos cámara
 	camera = new THREE.Camera();
 	scene.add(camera);
 
@@ -60,9 +56,10 @@ function initialize()
 	totalTime = 0;
 
 	////////////////////////////////////////////////////////////
-	// setup arToolkitSource
+	// configurar arToolkitSource
 	////////////////////////////////////////////////////////////
-
+//Se lanza la base de la realidad aumentada con artoolkit.js.
+//Por ejemplo se lanza el comando de la cámara, el tamaño de la resolución
 	arToolkitSource = new THREEx.ArToolkitSource({
 		sourceType : 'webcam',
 	});
@@ -81,30 +78,33 @@ function initialize()
 		onResize()
 	});
 
-	// handle resize event
+	// manejar evento de cambio de tamaño
 	window.addEventListener('resize', function(){
 		onResize()
 	});
 
 	////////////////////////////////////////////////////////////
-	// setup arToolkitContext
+	// comfigurar arToolkitContext
 	////////////////////////////////////////////////////////////
-
-	// create atToolkitContext
+//Se lanza los demás parámetros. Por ejemplo el famoso camara_para, el
+//elemento para funcionar la cámara web.
+	// creamos atToolkitContext
 	arToolkitContext = new THREEx.ArToolkitContext({
 		cameraParametersUrl: 'js/threearjs/camera_para.dat',
 		detectionMode: 'mono'
 	});
 
-	// copy projection matrix to camera when initialization complete
+	//
+//Copiar la matriz de proyección a la cámara cuando se complete la inicialización.
 	arToolkitContext.init( function onCompleted(){
 		camera.projectionMatrix.copy( arToolkitContext.getProjectionMatrix() );
 	});
 
 	////////////////////////////////////////////////////////////
-	// setup markerRoots
+	// configurar markerRoots
 	////////////////////////////////////////////////////////////
-
+//Ya nos olvidamos de los marcadores? En esta versión aún se usa
+//el marcador de blanco y negro gracias a nuestro marcador por excelencia: EL HIRO
 	let loader = new THREE.TextureLoader();
 	let texture = loader.load( 'js/threearjs/border.png' );
 
@@ -118,6 +118,9 @@ function initialize()
 			type : 'pattern', patternUrl : "js/threearjs/" + patternArray[i] + ".patt",
 		});
 
+		//Se agrega el objeto 3d de three.js para lanzar elementos. Para esto se puede
+		//trabajar con diferentes formas y elementos.
+
 		let mesh = new THREE.Mesh(
 			new THREE.CubeGeometry(1.25,1.25,1.25),
 			new THREE.MeshBasicMaterial({color:colorArray[i], map:texture, transparent:true, opacity:0.5})
@@ -127,15 +130,14 @@ function initialize()
 	}
 }
 
-
 function update()
 {
-	// update artoolkit on every frame
+	// actualizar artoolkit en cada frame
 	if ( arToolkitSource.ready !== false )
 		arToolkitContext.update( arToolkitSource.domElement );
 }
 
-
+//Parte final para renderizar
 function render()
 {
 	renderer.render( scene, camera );
