@@ -18,7 +18,7 @@
 		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
-		<link rel="stylesheet" href="css/zenburn.css">
+		<link rel="stylesheet" href="/css/zenburn.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -28,6 +28,10 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
 
 	<body>
@@ -57,18 +61,19 @@
 					<section>
 						<h2>JSARTOOLKIT</h2>
 						<p align=justify>Es una biblioteca de realidad aumentada para JavaScript. También se considera una biblioteca de software libre publicada bajo la Licencia Pública GNU y un puerto directo de FLARToolKit para Flash que creé para la demo de realidad aumentada con aceleración gráfica de Mozilla.  </p>
-						<p align=justify>FLARToolKit en sí es un puerto de NyARToolKit de Java, que a su vez es puerto de ARToolKit C.
-              JSARToolKit opera en elementos canvas. Debido a que necesita leer la imagen fuera del elemento canvas, es necesario que esta proceda del mismo origen que la página o que utilice la tecnología CORS para obtener una política con aproximadamente el mismo origen.</p>
+
               <p align=justify>En resumen, establece la propiedad crossOrigin del elemento de vídeo o imagen que quieras utilizar como textura para '' o 'anonymous'.</p>
           	<br>
+						<a href="#" class="navigate-down">
+							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Down arrow">
+						</a>
 					</section>
 					<section>
-						<h2>Basement Level 1</h2>
-						<p>Nested slides are useful for adding additional detail underneath a high level horizontal slide.</p>
+            <p align=justify>FLARToolKit en sí es un puerto de NyARToolKit de Java, que a su vez es puerto de ARToolKit C.
+              JSARToolKit opera en elementos canvas. Debido a que necesita leer la imagen fuera del elemento canvas, es necesario que esta proceda del mismo origen que la página o que utilice la tecnología CORS para obtener una política con aproximadamente el mismo origen.</p>
 					</section>
 					<section>
-						<h2>Basement Level 2</h2>
-						<p>That's it, time to go back up.</p>
+            <p align=justify>En resumen, establece la propiedad crossOrigin del elemento de vídeo o imagen que quieras utilizar como textura para '' o 'anonymous'.</p>
 						<br>
 						<a href="#/2">
 							<img width="178" height="238" data-src="https://s3.amazonaws.com/hakim-static/reveal-js/arrow.png" alt="Up arrow" style="transform: rotate(180deg); -webkit-transform: rotate(180deg);">
@@ -380,7 +385,7 @@ Reveal.addEventListener( 'customevent', function() {
 
 		</div>
 
-		<script src="lib/js/head.min.js"></script>
+		<script src="js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
@@ -396,13 +401,13 @@ Reveal.addEventListener( 'customevent', function() {
 
 				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
-					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-					{ src: 'plugin/search/search.js', async: true },
-					{ src: 'plugin/zoom-js/zoom.js', async: true },
-					{ src: 'plugin/notes/notes.js', async: true }
+					{ src: 'js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'js/plugin/search/search.js', async: true },
+					{ src: 'js/plugin/zoom-js/zoom.js', async: true },
+					{ src: 'js/plugin/notes/notes.js', async: true }
 				]
 			});
 
