@@ -5712,7 +5712,7 @@ ARjs.Profile.prototype.defaultMarker = function (trackingBackend) {
 	if( trackingBackend === 'artoolkit' ){
 		this.contextParameters.detectionMode = 'mono'
 		this.defaultMarkerParameters.type = 'pattern'
-		this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + '../data/data/patt.hiro'
+		this.defaultMarkerParameters.patternUrl = THREEx.ArToolkitContext.baseURL + 'images/patt.hiro'
 	}else if( trackingBackend === 'aruco' ){
 		this.contextParameters.detectionMode = 'mono'
 		this.defaultMarkerParameters.type = 'barcode'
