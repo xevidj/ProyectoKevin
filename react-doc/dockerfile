@@ -12,6 +12,6 @@ RUN nmp install
 ADD src /usr/src/app/src
 ADD public /usr/src/app/public
 
-RUN nmp build
+RUN npm build
 
 CMD [ "nmp", "start"]
