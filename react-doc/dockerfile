@@ -14,4 +14,4 @@ ADD public /usr/src/app/public
 
 RUN npm build
 
-CMD [ "nmp", "start"]
+CMD [ "npm", "start"]
