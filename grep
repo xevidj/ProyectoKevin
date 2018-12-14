@@ -1,0 +1,80 @@
+Active Internet connections (only servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name    
+tcp        0      0 172.17.0.1:53           0.0.0.0:*               LISTEN      4342/named          
+tcp        0      0 10.10.0.5:53            0.0.0.0:*               LISTEN      4342/named          
+tcp        0      0 104.248.237.254:53      0.0.0.0:*               LISTEN      4342/named          
+tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      4342/named          
+tcp        0      0 127.0.0.53:53           0.0.0.0:*               LISTEN      591/systemd-resolve 
+tcp        0      0 0.0.0.0:22              0.0.0.0:*               LISTEN      812/sshd            
+tcp        0      0 127.0.0.1:953           0.0.0.0:*               LISTEN      4342/named          
+tcp        0      0 0.0.0.0:25              0.0.0.0:*               LISTEN      1285/master         
+tcp6       0      0 :::110                  :::*                    LISTEN      864/couriertcpd     
+tcp6       0      0 :::143                  :::*                    LISTEN      867/couriertcpd     
+tcp6       0      0 :::8080                 :::*                    LISTEN      23959/docker-proxy  
+tcp6       0      0 :::80                   :::*                    LISTEN      1265/apache2        
+tcp6       0      0 :::53                   :::*                    LISTEN      4342/named          
+tcp6       0      0 :::22                   :::*                    LISTEN      812/sshd            
+tcp6       0      0 ::1:953                 :::*                    LISTEN      4342/named          
+tcp6       0      0 :::25                   :::*                    LISTEN      1285/master         
+udp        0      0 172.17.0.1:53           0.0.0.0:*                           4342/named          
+udp        0      0 10.10.0.5:53            0.0.0.0:*                           4342/named          
+udp        0      0 104.248.237.254:53      0.0.0.0:*                           4342/named          
+udp        0      0 127.0.0.1:53            0.0.0.0:*                           4342/named          
+udp        0      0 127.0.0.53:53           0.0.0.0:*                           591/systemd-resolve 
+udp6       0      0 :::53                   :::*                                4342/named          
+raw6       0      0 :::58                   :::*                    7           575/systemd-network 
+Active UNIX domain sockets (only servers)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name     Path
+unix  2      [ ACC ]     SEQPACKET  LISTENING     11964    1/init               /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     68048    4659/systemd         /run/user/0/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     68052    4659/systemd         /run/user/0/gnupg/S.gpg-agent
+unix  2      [ ACC ]     STREAM     LISTENING     68053    4659/systemd         /run/user/0/gnupg/S.gpg-agent.extra
+unix  2      [ ACC ]     STREAM     LISTENING     68054    4659/systemd         /run/user/0/gnupg/S.gpg-agent.browser
+unix  2      [ ACC ]     STREAM     LISTENING     68055    4659/systemd         /run/user/0/gnupg/S.dirmngr
+unix  2      [ ACC ]     STREAM     LISTENING     68056    4659/systemd         /run/user/0/gnupg/S.gpg-agent.ssh
+unix  2      [ ACC ]     STREAM     LISTENING     11689    1/init               /run/systemd/private
+unix  2      [ ACC ]     STREAM     LISTENING     11699    1/init               /run/lvm/lvmpolld.socket
+unix  2      [ ACC ]     STREAM     LISTENING     19559    1285/master          public/pickup
+unix  2      [ ACC ]     STREAM     LISTENING     19563    1285/master          public/cleanup
+unix  2      [ ACC ]     STREAM     LISTENING     19566    1285/master          public/qmgr
+unix  2      [ ACC ]     STREAM     LISTENING     11711    1/init               /run/lvm/lvmetad.socket
+unix  2      [ ACC ]     STREAM     LISTENING     19570    1285/master          private/tlsmgr
+unix  2      [ ACC ]     STREAM     LISTENING     11713    1/init               /run/systemd/journal/stdout
+unix  2      [ ACC ]     STREAM     LISTENING     19573    1285/master          private/rewrite
+unix  2      [ ACC ]     STREAM     LISTENING     19576    1285/master          private/bounce
+unix  2      [ ACC ]     STREAM     LISTENING     19579    1285/master          private/defer
+unix  2      [ ACC ]     STREAM     LISTENING     19582    1285/master          private/trace
+unix  2      [ ACC ]     STREAM     LISTENING     19585    1285/master          private/verify
+unix  2      [ ACC ]     STREAM     LISTENING     19588    1285/master          public/flush
+unix  2      [ ACC ]     STREAM     LISTENING     315967   23966/containerd-sh  @/containerd-shim/moby/f32142e46d53b0c881e3dfdf7f444c3e1041f806ccd979a83f98aa255e8d518c/shim.sock@
+unix  2      [ ACC ]     STREAM     LISTENING     19591    1285/master          private/proxymap
+unix  2      [ ACC ]     STREAM     LISTENING     19594    1285/master          private/proxywrite
+unix  2      [ ACC ]     STREAM     LISTENING     18315    815/authdaemond      /run/courier/authdaemon/socket.tmp
+unix  2      [ ACC ]     STREAM     LISTENING     19597    1285/master          private/smtp
+unix  2      [ ACC ]     STREAM     LISTENING     19600    1285/master          private/relay
+unix  2      [ ACC ]     STREAM     LISTENING     19603    1285/master          public/showq
+unix  2      [ ACC ]     STREAM     LISTENING     19606    1285/master          private/error
+unix  2      [ ACC ]     STREAM     LISTENING     313239   22759/containerd     /run/containerd/containerd.sock
+unix  2      [ ACC ]     STREAM     LISTENING     15746    1/init               /var/lib/lxd/unix.socket
+unix  2      [ ACC ]     STREAM     LISTENING     19627    1285/master          private/scache
+unix  2      [ ACC ]     STREAM     LISTENING     19630    1285/master          private/maildrop
+unix  2      [ ACC ]     STREAM     LISTENING     19633    1285/master          private/uucp
+unix  2      [ ACC ]     STREAM     LISTENING     19636    1285/master          private/ifmail
+unix  2      [ ACC ]     STREAM     LISTENING     314415   23669/dockerd        /var/run/docker/metrics.sock
+unix  2      [ ACC ]     STREAM     LISTENING     19639    1285/master          private/bsmtp
+unix  2      [ ACC ]     STREAM     LISTENING     314560   23669/dockerd        /run/docker/libnetwork/d314377f34d838ab9b3065ec287db12509ca62a85326e987fa92f3db68144f77.sock
+unix  2      [ ACC ]     STREAM     LISTENING     19642    1285/master          private/scalemail-backend
+unix  2      [ ACC ]     STREAM     LISTENING     19645    1285/master          private/mailman
+unix  2      [ ACC ]     STREAM     LISTENING     15695    1/init               @ISCSIADM_ABSTRACT_NAMESPACE
+unix  2      [ ACC ]     STREAM     LISTENING     19609    1285/master          private/retry
+unix  2      [ ACC ]     STREAM     LISTENING     19612    1285/master          private/discard
+unix  2      [ ACC ]     STREAM     LISTENING     19615    1285/master          private/local
+unix  2      [ ACC ]     STREAM     LISTENING     19618    1285/master          private/virtual
+unix  2      [ ACC ]     STREAM     LISTENING     19621    1285/master          private/lmtp
+unix  2      [ ACC ]     STREAM     LISTENING     19624    1285/master          private/anvil
+unix  2      [ ACC ]     STREAM     LISTENING     15677    1/init               /run/uuidd/request
+unix  2      [ ACC ]     STREAM     LISTENING     15712    1/init               /run/snapd.socket
+unix  2      [ ACC ]     STREAM     LISTENING     15714    1/init               /run/snapd-snap.socket
+unix  2      [ ACC ]     STREAM     LISTENING     314363   23669/dockerd        /var/run/docker.sock
+unix  2      [ ACC ]     STREAM     LISTENING     15734    1/init               /run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     15742    1/init               /var/run/dbus/system_bus_socket
