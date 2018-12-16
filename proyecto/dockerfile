@@ -1,22 +1,33 @@
-//Dockerfile
-FROM node:7.10.0
-MAINTAINER Artem Golovin <hey@artemgolovin.com>
-# use changes to package.json to force Docker not to use the cache
-# when we change our application's nodejs dependencies:
-ADD package.json /tmp/package.json
-RUN cd /tmp && yarn install
-RUN mkdir -p /usr/src/app && cp -a /tmp/node_modules /usr/src/app
-# From here we load our application's code in, therefore the previous docker
-# "layer" thats been cached will be used if possible
-WORKDIR /usr/src/app
-ADD . /usr/src/app
+#==================== Building Stage ================================================
+
+# Create the image based on the official Node 8.9.0 image from Dockerhub
+FROM node:8.9.0 as node
+
+# Create a directory where our app will be placed. This might not be necessary
+RUN mkdir -p /to-do-app
+
+# Change directory so that our commands run inside this new directory
+WORKDIR /to-do-app
+
+# Copy dependency definitions
+COPY package.json /to-do-app
+
+# Install dependencies using npm
+RUN npm install
+
+# Get all the code needed to run the app
+COPY . /to-do-app
+
+# Expose the port the app runs in
+EXPOSE 4200
+
+#Build the app
 RUN npm run build
-RUN rm -rf ./build
-RUN rm -rf ./test
-RUN rm -rf ./src
-ENV PORT=81
-EXPOSE 80
-CMD [ "npm", "start" ]
-//.dockerignore
-dist
-node_modules
+
+#==================== Setting up stage ====================
+# Create image based on the official nginx - Alpine image
+FROM nginx:1.13.7-alpine
+
+COPY --from=node /to-do-app/dist/ /usr/share/nginx/html
+
+COPY ./nginx-to-do-app.conf /etc/nginx/conf.d/default.conf
