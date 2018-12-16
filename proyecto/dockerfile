@@ -1,5 +1,5 @@
 # build stage
-FROM node:latest as build-stage
+FROM node:9.11.1-alpine as build-stage
 LABEL MAINTAINER Abdelrahman <abdelrahman@xware.co>
 WORKDIR /app
 COPY package*.json ./
@@ -8,7 +8,7 @@ COPY . .
 RUN npm run build
 
 # production stage
-FROM nginx:latest as production-stage
+FROM nginx:1.13.12-alpine as production-stage
 COPY --from=build-stage /app/dist /usr/share/nginx/html/dist
 COPY --from=build-stage /app/index.html /usr/share/nginx/html
 COPY --from=build-stage /app/src/assets /usr/share/nginx/html/src/assets
