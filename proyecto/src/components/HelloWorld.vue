@@ -3,7 +3,7 @@
     <h1>{{ msg }}</h1>
     <p>
     Bieido / cdasd,<br>
-      check out the
+      checek out the
       <a href="https://cli.vuejs.org" target="_blank" rel="noopener">vue-cli documentation</a>.
     </p>
     <h3>Installed CLI Plugins</h3>
