@@ -13,7 +13,7 @@ Vue.config.productionTip = false
 
 //默认允许后台跨域操作，如在客户端存储cookie等需要权限的操作
 //当请求的凭据模式为“include”时，响应中的“Access-Control-Allow-Origin”头的值不能为通配符“*”
-//axios.defaults.withCredentials = true
+//axios.defaults.withCredentials = true 
 Vue.use(Vuex)
 Vue.prototype.$axios = axios //Vue实例添加axios方法
 Vue.prototype.show = id =>{

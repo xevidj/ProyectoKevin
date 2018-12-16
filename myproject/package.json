@@ -1,33 +1,26 @@
 {
-  "name": "myproject",
-  "version": "0.1.0",
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "博客管理系统",
+  "author": "cxy",
   "private": true,
   "scripts": {
-    "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "dev": "node build/dev-server.js",
+    "start": "npm run dev",
+    "build": "node build/build.js",
+    "unit": "cross-env BABEL_ENV=test karma start test/unit/karma.conf.js --single-run",
+    "e2e": "node test/e2e/runner.js"
   },
   "dependencies": {
     "axios": "^0.17.0",
     "express": "^4.16.2",
     "font-awesome": "^4.7.0",
     "mongoose": "^4.12.5",
-    "register-service-worker": "^1.5.2",
-    "vue": "^2.5.17",
+    "vue": "^2.5.2",
     "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vuex": "^3.0.0"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.0",
-    "@vue/cli-plugin-pwa": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
-    "node-sass": "^4.9.0",
-    "sass-loader": "^7.0.1",
-    "vue-template-compiler": "^2.5.17",
     "autoprefixer": "^7.1.2",
     "babel-core": "^6.22.1",
     "babel-loader": "^7.1.1",
@@ -85,26 +78,10 @@
     "webpack-dev-middleware": "^1.12.0",
     "webpack-hot-middleware": "^2.18.2",
     "webpack-merge": "^4.1.0"
-
   },
-  "eslintConfig": {
-    "root": true,
-    "env": {
-      "node": true
-    },
-    "extends": [
-      "plugin:vue/essential",
-      "eslint:recommended"
-    ],
-    "rules": {},
-    "parserOptions": {
-      "parser": "babel-eslint"
-    }
-  },
-  "postcss": {
-    "plugins": {
-      "autoprefixer": {}
-    }
+  "engines": {
+    "node": ">= 4.0.0",
+    "npm": ">= 3.0.0"
   },
   "browserslist": [
     "> 1%",

@@ -26,11 +26,11 @@
 	  },
 	  methods:{
 	  	update(){
-//	  		setTimeout(()=>{
+//	  		setTimeout(()=>{	
 //	  			if(!this.login && this.$route.path != '/'){
 //		  				alert('请登陆后查看')
 //			  			this.$router.push({path:'/'})
-//			  		}
+//			  		}		
 //	  		},100)
 	  	}
 	  }
