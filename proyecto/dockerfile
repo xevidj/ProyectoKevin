@@ -1,7 +1,7 @@
 #==================== Building Stage ================================================
 
 # Create the image based on the official Node 8.9.0 image from Dockerhub
-FROM node:8.9.0 as node
+FROM node:latest
 
 # Create a directory where our app will be placed. This might not be necessary
 RUN mkdir -p /to-do-app
@@ -26,7 +26,7 @@ RUN npm run build
 
 #==================== Setting up stage ====================
 # Create image based on the official nginx - Alpine image
-FROM nginx:1.13.7-alpine
+FROM nginx:latest
 
 COPY --from=node /to-do-app/dist/ /usr/share/nginx/html
 
