@@ -1,4 +1,4 @@
-FROM node:9.11.2-alpine
+FROM node:10.14.2-alpine
 
 ENV NODE_ENV=development
 RUN mkdir -p /usr/src/app
