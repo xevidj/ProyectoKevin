@@ -1,18 +1,9 @@
 <template>
-  <div class="home">
-    <img src="../assets/logo.png">
-    <Messages/>
-  </div>
+  <v-container fluid>
+    <v-slide-y-transition mode="out-in">
+      <v-layout column align-center>
+        <h1>Loading...</h1>
+      </v-layout>
+    </v-slide-y-transition>
+  </v-container>
 </template>
-
-<script>
-// @ is an alias to /src
-import Messages from '@/components/Messages.vue'
-
-export default {
-  name: 'home',
-  components: {
-    Messages
-  }
-}
-</script>

@@ -3,8 +3,32 @@
   "port": 3030,
   "public": "../public/",
   "paginate": {
-    "default": 10,
-    "max": 50
+    "default": 500,
+    "max": 1000
   },
-  "mongodb": "mongodb://localhost:27017/server"
+  "authentication": {
+    "secret": "AUTH_SECRET",
+    "strategies": [
+      "jwt",
+      "local"
+    ],
+    "path": "/authentication",
+    "service": "users",
+    "jwt": {
+      "header": {
+        "typ": "access"
+      },
+      "audience": "https://cg-trello-clone.now.sh",
+      "subject": "auth",
+      "issuer": "coding.garden",
+      "algorithm": "HS256",
+      "expiresIn": "1d"
+    },
+    "local": {
+      "entity": "user",
+      "usernameField": "\\username",
+      "passwordField": "password"
+    }
+  },
+  "mongodb": "MONGO_DB_URI"
 }

@@ -1,6 +1,6 @@
-# server
+# trello-clone-server
 
-> 
+> A trello clone.
 
 ## About
 
@@ -14,7 +14,7 @@ Getting up and running is as easy as 1, 2, 3.
 2. Install your dependencies
 
     ```
-    cd path/to/server; npm install
+    cd path/to/trello-clone-server; npm install
     ```
 
 3. Start your app
@@ -52,6 +52,6 @@ __0.1.0__
 
 ## License
 
-Copyright (c) 2018
+Copyright (c) 2016
 
 Licensed under the [MIT license](LICENSE).
