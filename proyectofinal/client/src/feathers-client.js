@@ -5,8 +5,8 @@ import io from 'socket.io-client';
 
 let API_URL = 'https://cg-trello-clone.now.sh';
 
-if (window.location.hostname === 'localhost') {
-  API_URL = 'http://localhost:3030';
+if (window.location.hostname === '104.248.237.254:8081') {
+  API_URL = 'http://104.248.237.254:8081:3030';
 }
 
 const socket = io(API_URL, {
