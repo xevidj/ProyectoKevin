@@ -2,7 +2,7 @@
   <v-toolbar
     app>
     <v-toolbar-title>
-      <v-btn flat :to="{ name: 'home' }">Trello Clone</v-btn>
+      <v-btn flat :to="{ name: 'home' }">Torosina Blog's</v-btn>
     </v-toolbar-title>
     <v-spacer></v-spacer>
     <v-toolbar-items v-if="!user">
@@ -26,4 +26,3 @@ export default {
   },
 };
 </script>
-

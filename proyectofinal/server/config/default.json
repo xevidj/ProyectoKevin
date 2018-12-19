@@ -18,7 +18,7 @@
       "header": {
         "typ": "access"
       },
-      "audience": "https://cg-trello-clone.now.sh",
+      "audience": "http://104.248.237.254:3030/",
       "subject": "auth",
       "issuer": "coding.garden",
       "algorithm": "HS256",
