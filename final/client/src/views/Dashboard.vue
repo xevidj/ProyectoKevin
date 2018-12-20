@@ -57,7 +57,7 @@ import MDemoji from 'markdown-it-emoji';
 const md = new MarkdownIt();
 md.use(MDemoji);
 
-const API_URL = 'http://104.248.237.254:5000/';
+const API_URL = 'http://localhost:5000/';
 
 export default {
   data: () => ({

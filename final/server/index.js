@@ -14,7 +14,7 @@ const notes = require('./api/notes');
 
 app.use(volleyball);
 app.use(cors({
-  origin: 'http://104.248.237.254:8081'
+  origin: 'http://localhost:8081'
 }));
 app.use(express.json());
 app.use(middlewares.checkTokenSetUser);
