@@ -1,5 +1,5 @@
 {
-  "host": "104.248.237.254",
+  "host": "localhost",
   "port": 3030,
   "public": "../public/",
   "paginate": {

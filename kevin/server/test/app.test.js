@@ -5,7 +5,7 @@ const app = require('../src/app');
 
 const port = app.get('port') || 3030;
 const getUrl = pathname => url.format({
-  hostname: app.get('host') || '104.248.237.254:8081',
+  hostname: app.get('host') || 'localhost',
   protocol: 'http',
   port,
   pathname

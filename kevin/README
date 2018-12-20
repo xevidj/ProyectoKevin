@@ -19,7 +19,7 @@ A simple FeathersJS + VueJS + Docker application
 - from the client folder: npm install; npm run serve
 
 # Working with Docker:
-- in .server/config/default.json change  "mongodb": "mongodb://104.248.237.254:8081:27017/server" =>  "mongodb": "mongodb://mongo:27017/server"
+- in .server/config/default.json change  "mongodb": "mongodb://localhost:27017/server" =>  "mongodb": "mongodb://mongo:27017/server"
 - from top level project: docker-compose up
 
 # Important commands
