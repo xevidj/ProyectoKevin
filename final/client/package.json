@@ -1,23 +1,26 @@
 {
-  "name": "final",
+  "name": "client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
+    "lint": "vue-cli-service lint --fix"
   },
   "dependencies": {
-    "vue": "^2.5.17"
+    "bootswatch": "^4.1.2",
+    "joi": "^13.4.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-emoji": "^1.4.0",
+    "vue": "^2.5.16",
+    "vue-router": "^3.0.1"
   },
   "devDependencies": {
-    "@vue/cli-plugin-babel": "^3.2.0",
-    "@vue/cli-plugin-eslint": "^3.2.0",
-    "@vue/cli-service": "^3.2.0",
-    "babel-eslint": "^10.0.1",
-    "eslint": "^5.8.0",
-    "eslint-plugin-vue": "^5.0.0-0",
-    "vue-template-compiler": "^2.5.17"
+    "@vue/cli-plugin-babel": "^3.0.0-rc.4",
+    "@vue/cli-plugin-eslint": "^3.0.0-rc.4",
+    "@vue/cli-service": "^3.0.0-rc.4",
+    "@vue/eslint-config-airbnb": "^3.0.0-rc.4",
+    "vue-template-compiler": "^2.5.16"
   },
   "eslintConfig": {
     "root": true,
@@ -26,7 +29,7 @@
     },
     "extends": [
       "plugin:vue/essential",
-      "eslint:recommended"
+      "@vue/airbnb"
     ],
     "rules": {},
     "parserOptions": {
