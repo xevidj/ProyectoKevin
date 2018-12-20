@@ -1,27 +1,9 @@
 <template>
-  <div class="home text-center">
-    <div class="jumbotron">
-      <h1 class="display-3">Authentication for Newbs</h1>
-      <p class="lead">
-        Learning Auth is fun! 🔐 🎉
-      </p>
-      <hr class="my-4">
-      <p>
-        CJ and Tony are a great team (most days...)
-      </p>
-      <p class="lead">
-        <router-link
-          class="btn btn-primary btn-lg"
-          :to="{ name: 'signup' }"
-          role="button">Sign Up</router-link>
-      </p>
-    </div>
-  </div>
+  <v-container fluid>
+    <v-slide-y-transition mode="out-in">
+      <v-layout column align-center>
+        <h1>Loading...</h1>
+      </v-layout>
+    </v-slide-y-transition>
+  </v-container>
 </template>
-
-<script>
-
-export default {
-  name: 'home',
-};
-</script>
