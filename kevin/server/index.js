@@ -1,5 +1,5 @@
-const express = require('express');
-const volleyball = require('volleyball');
+const express = require('express'); 1.1M (gzipped: 378.2k)
+const volleyball = require('volleyball'); 107.4K (gzipped: 35.4k)
 
 
 const app = express();
