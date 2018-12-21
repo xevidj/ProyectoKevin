@@ -1,23 +1,14 @@
 const express = require('express');
 const volleyball = require('volleyball');
-const cors = require('cors');
 
-require('dotenv').config();
 
 const app = express();
 
-const middlewares = require('./auth/middlewares');
 // const auth = require('./auth/index.js');
 // const auth = require('./auth/index');
-const auth = require('./auth');
-const notes = require('./api/notes');
 
 app.use(volleyball);
-app.use(cors({
-  origin: 'http://localhost:8081'
-}));
-app.use(express.json());
-app.use(middlewares.checkTokenSetUser);
+
 
 app.get('/', (req, res) => {
   res.json({
@@ -26,8 +17,6 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use('/auth', auth);
-app.use('/api/v1/notes', middlewares.isLoggedIn, notes);
 
 function notFound(req, res, next) {
   res.status(404);
