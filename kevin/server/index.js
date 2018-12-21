@@ -13,7 +13,6 @@ app.use(volleyball);
 app.get('/', (req, res) => {
   res.json({
     message: '🦄🌈✨Hello World! 🌈✨🦄',
-    user: req.user,
   });
 });
 
