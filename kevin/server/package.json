@@ -7,7 +7,7 @@
     "start": "node index.js"
   },
   "keywords": [],
-  "author": "",
+  "author": "w3cj <cj@null.computer>",
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
