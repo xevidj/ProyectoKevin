@@ -3,11 +3,7 @@ import Router from 'vue-router';
 import Home from './views/Home.vue';
 import Signup from './views/Signup.vue';
 import Login from './views/Login.vue';
-<<<<<<< HEAD
-// import Dashboard from './views/Dashboard.vue';
-=======
 import Dashboard from './views/Dashboard.vue';
->>>>>>> fd3836bf7112aba0be6dc16b8770af345532b60c
 
 Vue.use(Router);
 
