@@ -7,7 +7,7 @@
       </p>
       <hr class="my-4">
       <p>
-        <img src="../assets/kevin1.jpg" />
+        <img src="../assets/kevin1.jp" />
         CREATED BY KEVIN TOROSINA
       </p>
       <p class="lead">
@@ -22,7 +22,7 @@
           :to="{ name: 'login' }"
           role="button">Iniciar Sesion</router-link>
       </p>
-      <footer>
+      <p>
         <center>
 			<a href="https://www.facebook.com/kevin.torosina" target="_blank"><img alt="siguenos en facebook" height="40" src="http://1.bp.blogspot.com/-26xGT3R3DRQ/UiX1SY8I8oI/AAAAAAAAB4Y/bKCnHS9IorE/s1600/Facebook+alt+1.png" title="siguenos en facebook" width="40" /></a>
 			<a href="https://twitter.com/txevi10" target="_blank"><img alt="siguenos en Twitter" height="40" src="http://2.bp.blogspot.com/-ZaTYz5sdFmc/UiX1V-AhNLI/AAAAAAAAB6M/ufa5OqT3x4o/s1600/Twitter+alt+4.png" title="siguenos en Twitter" width="40" /></a>
@@ -30,7 +30,7 @@
 			<a href="https://www.instagram.com/xevidj/" target="_blank"><img alt="s�gueme en Instagram" height="40" src="http://1.bp.blogspot.com/-y2Hmt1c7DO8/UidPHZf07cI/AAAAAAAAB_4/VoI2-auBvNU/s1600/instagram2.png" title="s�gueme en Instagram" width="40" /></a>
     </center>
 				<p align="center"><font size=3>Todos los Derechos Reservados 2018 - DISEÑADO por TOROSINA.</font></p>
-			</footer>
+			</p>
 
     </div>
   </div>
