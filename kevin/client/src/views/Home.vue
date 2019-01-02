@@ -7,7 +7,7 @@
       </p>
       <hr class="my-4">
       <p>
-        <img src="../assets/kevin1.jp" />
+        <img src="../assets/kevin1.jpg" />
         CREATED BY KEVIN TOROSINA
       </p>
       <p class="lead">
