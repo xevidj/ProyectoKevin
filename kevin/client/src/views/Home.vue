@@ -8,7 +8,6 @@
       <hr class="my-4">
       <p>
         <img src="../assets/kevin1.jpg" />
-
       </p>
       <p class="lead">
         <router-link
