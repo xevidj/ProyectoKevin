@@ -1,18 +1,27 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="home text-center">
+    <div class="jumbotron">
+      <h1 class="display-3">Authentication for Newbs</h1>
+      <p class="lead">
+        Learning Auth is fun! 🔐 🎉
+      </p>
+      <hr class="my-4">
+      <p>
+        CJ and Tony are a great team (most days...)
+      </p>
+      <p class="lead">
+        <router-link
+          class="btn btn-primary btn-lg"
+          :to="{ name: 'signup' }"
+          role="button">Sign Up</router-link>
+      </p>
+    </div>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue';
 
 export default {
   name: 'home',
-  components: {
-    HelloWorld,
-  },
 };
 </script>
