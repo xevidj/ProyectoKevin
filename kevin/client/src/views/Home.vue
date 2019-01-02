@@ -8,8 +8,11 @@
       <hr class="my-4">
       <p>
         <img src="../assets/kevin1.jpg" />
-        CREATED BY KEVIN TOROSINA
+
       </p>
+      <p>
+      <font size=3>CREATED BY KEVIN TOROSINA.</font>
+    </p>
       <p class="lead">
         <router-link
           class="btn btn-primary btn-lg"
