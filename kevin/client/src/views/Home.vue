@@ -1,19 +1,19 @@
 <template>
   <div class="home text-center">
     <div class="jumbotron">
-      <h1 class="display-3">Authentication for Newbs</h1>
+      <h1 class="display-3">BLOG'S TOROSINA</h1>
       <p class="lead">
-        Learning Auth is fun! 🔐 🎉
+        Graficacion y Animacion
       </p>
       <hr class="my-4">
       <p>
-        CJ and Tony are a great team (most days...)
+        CREATED BY KEVIN TOROSINA
       </p>
       <p class="lead">
         <router-link
           class="btn btn-primary btn-lg"
           :to="{ name: 'signup' }"
-          role="button">Sign Up</router-link>
+          role="button">Registrarse</router-link>
       </p>
     </div>
   </div>
