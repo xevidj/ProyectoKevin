@@ -9,14 +9,14 @@
     </div>
     <form v-if="!signingUp" @submit.prevent="signup">
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">Usuario</label>
         <input
           v-model="user.username"
           type="text"
           class="form-control"
           id="username"
           aria-describedby="usernameHelp"
-          placeholder="Enter a username" required>
+          placeholder="Ingrese un nombre de usuario" required>
         <h5 id="usernameHelp" class="form-text text-muted">
           El nombre de usuario debe tener más de 2 caracteres y menos de 30.
            El nombre de usuario solo puede contener caracteres alfanuméricos y under_scores.
@@ -24,27 +24,27 @@
       </div>
       <div class="form-row">
         <div class="form-group col-md-6">
-          <label for="password">Password</label>
+          <label for="password">Contraseña</label>
           <input
             v-model="user.password"
             type="password"
             class="form-control"
             id="password"
             aria-describedby="passwordHelp"
-            placeholder="Password" required>
+            placeholder="Contraseña" required>
           <h5 id="passwordHelp" class="form-text text-muted">
           La contraseña debe tener 10 o más caracteres.
           </h5>
         </div>
         <div class="form-group col-md-6">
-          <label for="confirmPassword">Confirm Password</label>
+          <label for="confirmPassword">Confirmar Contraseña</label>
           <input
             v-model="user.confirmPassword"
             type="password"
             class="form-control"
             id="confirmPassword"
             aria-describedby="confirmPasswordHelp"
-            placeholder="Password" required>
+            placeholder="Contraseña" required>
           <h5 id="confirmPasswordHelp" class="form-text text-muted">
           Por favor, confirme su contraseña.
           </h5>
@@ -123,7 +123,7 @@ export default {
     },
     validUser() {
       if (this.user.password !== this.user.confirmPassword) {
-        this.errorMessage = 'Passwords must match. 🙈';
+        this.errorMessage = 'Las contraseñas deben coincidir.';
         return false;
       }
 
