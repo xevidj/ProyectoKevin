@@ -9,32 +9,32 @@
     </div>
     <form v-if="!loggingIn" @submit.prevent="login()">
       <div class="form-group">
-        <label for="username">Username</label>
+        <label for="username">Usuario</label>
         <input
           v-model="user.username"
           type="text"
           class="form-control"
           id="username"
           aria-describedby="usernameHelp"
-          placeholder="Enter a username" required>
+          placeholder="Ingrese su nombre de usuario" required>
         <h5 id="usernameHelp" class="form-text text-muted">
-         Enter your username to login.
+         Ingrese su nombre de usuario para iniciar sesión.
         </h5>
       </div>
       <div class="form-group">
-        <label for="password">Password</label>
+        <label for="password">Contraseña</label>
         <input
           v-model="user.password"
           type="password"
           class="form-control"
           id="password"
           aria-describedby="passwordHelp"
-          placeholder="Enter a password" required>
+          placeholder="Ingrese su contraseña" required>
         <h5 id="passwordHelp" class="form-text text-muted">
-         Enter your password to login.
+          Ingrese su contraseña para iniciar sesión.
         </h5>
       </div>
-      <button type="submit" class="btn btn-primary">Login</button>
+      <button type="submit" class="btn btn-primary">Ingresar</button>
     </form>
   </section>
 </template>
