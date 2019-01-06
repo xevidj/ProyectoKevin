@@ -50,7 +50,7 @@
           </h5>
         </div>
       </div>
-      <button type="submit" class="btn btn-primary">Signup</button>
+      <button type="submit" class="btn btn-primary">Registrarse</button>
     </form>
   </section>
 </template>
