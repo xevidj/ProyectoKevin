@@ -18,8 +18,8 @@
           aria-describedby="usernameHelp"
           placeholder="Enter a username" required>
         <h5 id="usernameHelp" class="form-text text-muted">
-         Username must be longer than 2 characters and shorter than 30.
-         Username can only contain alphanumeric characters and under_scores.
+          El nombre de usuario debe tener más de 2 caracteres y menos de 30.
+           El nombre de usuario solo puede contener caracteres alfanuméricos y under_scores.
         </h5>
       </div>
       <div class="form-row">
@@ -33,7 +33,7 @@
             aria-describedby="passwordHelp"
             placeholder="Password" required>
           <h5 id="passwordHelp" class="form-text text-muted">
-          Password must be 10 or more characters long.
+          La contraseña debe tener 10 o más caracteres.
           </h5>
         </div>
         <div class="form-group col-md-6">
@@ -46,7 +46,7 @@
             aria-describedby="confirmPasswordHelp"
             placeholder="Password" required>
           <h5 id="confirmPasswordHelp" class="form-text text-muted">
-          Please confirm your password.
+          Por favor, confirme su contraseña.
           </h5>
         </div>
       </div>
