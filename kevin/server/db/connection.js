@@ -13,7 +13,7 @@ const connectToMongoDB = () => {
     autoReconnect: true,
   };
 
-  return mongoose.connect('mongodb://admin:changeMe@mongodb:27017/auth-for-noobs', opts);
+  return mongoose.connect('mongodb://mongoAdmin:changeMe@mongodb:27017/auth-for-noobs', opts);
 };
 
 export default connectToMongoDB;
