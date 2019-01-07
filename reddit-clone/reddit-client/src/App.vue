@@ -1,29 +1,59 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </div>
-    <router-view/>
+    <nav class="navbar is-black" role="navigation" aria-label="main navigation">
+      <div class="navbar-brand">
+        <a class="navbar-item" href="/#/subreddits">
+          Seedling 🌱
+        </a>
+
+      </div>
+      <div class="navbar-end">
+        <div class="navbar-item">
+          <div class="field is-grouped">
+            <p class="control" v-if="!isLoggedIn">
+              <a class="button is Danger" @click="login()">
+                Login with Google
+              </a>
+            </p>
+            <p class="control logged-in" v-if="isLoggedIn">
+              <span class="avatar">
+                <figure>
+                  <img :src="user.image">
+                </figure>
+                <figcaption>{{user.name}}</figcaption>
+              </span>
+              <a class="button is-primary" @click="logout()">
+                LogOut
+              </a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <router-view class="main container"/>
   </div>
 </template>
 
+<script>
+import { mapActions, mapState } from 'vuex';
+export default {
+  computed: mapState('auth', ['user', 'isLoggedIn']),
+  methods: mapActions('auth', ['login', 'logout']),
+};
+</script>
+
+
 <style lang="scss">
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+.main {
+  margin-top: 2em;
 }
-#nav {
-  padding: 30px;
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+.logged-in {
+  display: flex;
+  flex-direction: row;
+}
+.avatar {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 </style>
