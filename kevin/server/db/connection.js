@@ -1,19 +1,13 @@
-import mongoose from 'mongoose';
+var mongo = require('mongodb');
+var monk = require('monk');
+var db = monk('mongodb://auth-for-noobs:1234@localhost:27017/auth-for-noobs');
 
-mongoose.Promise = global.Promise;
+var app = express();
 
-const connectToMongoDB = () => {
-  const opts = {
-    keepAlive: true,
-    keepAliveInitialDelay: 300000,
-    socketTimeoutMS: 30000,
-    poolSize: 50,
-    reconnectTries: Number.MAX_VALUE,
-    reconnectInterval: 500,
-    autoReconnect: true,
-  };
+// Make our db accessible to our router
+app.use(function(req,res,next){
+        req.db = db;
+        next();
+});
 
-  return mongoose.connect('mongodb://mongoAdmin:changeMe@mongodb:27017/auth-for-noobs', opts);
-};
-
-export default connectToMongoDB;
+module.exports = db;
