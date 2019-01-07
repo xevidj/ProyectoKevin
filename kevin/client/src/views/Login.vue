@@ -42,7 +42,7 @@
 <script>
 import Joi from 'joi';
 
-const LOGIN_URL = 'http://localhost:3000/auth/login';
+const LOGIN_URL = 'http://localhost:3030/auth/login';
 
 const schema = Joi.object().keys({
   username: Joi.string().regex(/(^[a-zA-Z0-9_]+$)/).min(2).max(30)

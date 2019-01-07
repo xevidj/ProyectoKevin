@@ -58,7 +58,7 @@
 <script>
 import Joi from 'joi';
 
-const SIGNUP_URL = 'http://localhost:3000/auth/signup';
+const SIGNUP_URL = 'http://localhost:3030/auth/signup';
 
 const schema = Joi.object().keys({
   username: Joi.string().regex(/(^[a-zA-Z0-9_]+$)/).min(2).max(30)
